@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Editor.Model
 {
@@ -8,7 +8,7 @@ namespace Editor.Model
         {
             // Use this to connect to the actual data service
 
-            var item = new DataItem("Welcome to MVVM Light");
+            var item = new DataItem("Pokémon TCG Card Creator");
             callback(item, null);
         }
     }

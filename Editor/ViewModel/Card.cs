@@ -8,20 +8,21 @@ using NonEmptyList;
 
 namespace Editor.ViewModel
 {
-    class Card
+    struct Card
     {
-        public Pokemon.Type Type { get; set; }
+        public Pokémon.Type Type { get; set; }
         [CanBeNull] public string ImageUrl { get; set; }
         [NotNull] public string Modifier { get; set; } // e.g. 'Surfing', "Team Rocket's", etc.
-        public string Pokemon { get; set; }
+        public string Pokémon { get; set; }
         public uint HP { get; set; }
-        public Pokemon.Type Weakness { get; set; }
-        public Pokemon.Type Resistance { get; set; }
-        [NotNull] public NonEmptyList<Pokemon.Move> Moves { get; set; }
+        public Pokémon.Type Weakness { get; set; }
+        public Pokémon.Type Resistance { get; set; }
+        [NotNull] public NonEmptyList<Pokémon.Move> Moves { get; set; }
+        // [CanBeNull] public Pokémon.Ability Ability { get; set; }
         public uint Level { get; set; }
         [NotNull] public string DexEntry { get; set; }
-        public Pokemon.Rarity Rarity { get; set; }
+        public Pokémon.Rarity Rarity { get; set; }
 
-        public string Name => $"{Modifier} {Pokemon}".Trim();
+        public string Name => $"{Modifier} {Pokémon}".Trim();
     }
 }

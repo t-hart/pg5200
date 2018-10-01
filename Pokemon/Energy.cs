@@ -6,10 +6,5 @@ using System.Threading.Tasks;
 
 namespace Pokémon
 {
-    public enum Rarity
-    {
-        Common,
-        Uncommon,
-        Rare
-    }
+    public sealed class Energy<IType> { }
 }

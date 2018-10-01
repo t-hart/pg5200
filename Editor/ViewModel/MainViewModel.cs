@@ -1,4 +1,4 @@
-﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight;
 using Editor.Model;
 
 namespace Editor.ViewModel
