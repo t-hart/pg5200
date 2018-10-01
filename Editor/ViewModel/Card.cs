@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
+using NonEmptyList;
 
 namespace Editor.ViewModel
 {
@@ -16,7 +17,7 @@ namespace Editor.ViewModel
         public uint HP { get; set; }
         public Pokemon.Type Weakness { get; set; }
         public Pokemon.Type Resistance { get; set; }
-        [NotNull] public Pokemon.Move[] Moves { get; set; }
+        [NotNull] public NonEmptyList<Pokemon.Move> Moves { get; set; }
         public uint Level { get; set; }
         [NotNull] public string DexEntry { get; set; }
         public Pokemon.Rarity Rarity { get; set; }
