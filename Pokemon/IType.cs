@@ -1,4 +1,4 @@
-namespace Pokémon
+namespace Pokemon
 {
     public interface IType { }
     public interface INormal : IType { }

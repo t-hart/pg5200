@@ -55,11 +55,5 @@ namespace Editor.ViewModel
                 });
         }
 
-        ////public override void Cleanup()
-        ////{
-        ////    // Clean up if needed
-
-        ////    base.Cleanup();
-        ////}
     }
 }
