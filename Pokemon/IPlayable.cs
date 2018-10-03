@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pokémon
+namespace Pokemon
 {
-    public sealed class Energy<IType> { }
+    interface IPlayable<T> where T : IEvolutionStage { }
 }

@@ -1,4 +1,4 @@
-namespace Pokémon
+namespace Pokemon
 {
     public sealed class Type<T> where T : IType
     {
