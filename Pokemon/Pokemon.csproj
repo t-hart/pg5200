@@ -7,8 +7,8 @@
     <ProjectGuid>{1B5FDF1F-4D2B-4B0F-80ED-23EC4716EE16}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Pokémon</RootNamespace>
-    <AssemblyName>Pokémon</AssemblyName>
+    <RootNamespace>Pokemon</RootNamespace>
+    <AssemblyName>Pokemon</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -45,12 +45,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Energy.cs" />
+    <Compile Include="IEnergy.cs" />
+    <Compile Include="IEvolutionStage.cs" />
+    <Compile Include="IPlayable.cs" />
     <Compile Include="IType.cs" />
-    <Compile Include="Move.cs" />
+    <Compile Include="IMove.cs" />
     <Compile Include="Type.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rarity.cs" />
+    <Compile Include="TypeEnum.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
