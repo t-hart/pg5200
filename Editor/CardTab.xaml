@@ -1,0 +1,80 @@
+<UserControl x:Class="Editor.CardTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Editor"
+             mc:Ignorable="d">
+  <Grid Margin="5">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="Auto"/>
+      <ColumnDefinition Width="Auto"/>
+    </Grid.ColumnDefinitions>
+    <TextBlock FontSize="36"
+                   FontWeight="Bold"
+                   Margin="5"
+                   Foreground="Purple"
+                   Text="Card editor"
+                   Grid.Row="0"
+                   Grid.Column="1"
+                   TextWrapping="Wrap" VerticalAlignment="Center"/>
+
+    <Grid Margin="5"
+    Grid.Row="1"
+    Grid.Column="1"
+          >
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="1*"/>
+        <ColumnDefinition Width="1*"/>
+      </Grid.ColumnDefinitions>
+
+      <TextBox Text="Surfing" Grid.Row="0" Grid.Column="0" Margin="3"/>
+      <TextBox Text="Pikachu" Grid.Row="0" Grid.Column="1" Margin="3"/>
+      <ComboBox Grid.Row="1" Grid.Column="0"  Margin="3"/>
+      <ComboBox Grid.Row="1" Grid.Column="1"  Margin="3"/>
+      <ComboBox Grid.Row="2" Grid.Column="0"  Margin="3"/>
+      <TextBox Text="HP" Grid.Row="3" Grid.Column="0"  Margin="3"/>
+      <TextBox Text="Level" Grid.Row="3" Grid.Column="1"  Margin="3"/>
+      <Button Grid.Row="4" Grid.Column="0" Content="Save and reset" Margin="3"/>
+      <Button Grid.Row="4" Grid.Column="1" Content="Save" Margin="3"/>
+      <Button Grid.Row="5" Grid.Column="0" Content="Reset" Margin="3"/>
+      <Button Grid.Row="5" Grid.Column="1" Content="Browse cards" Margin="3"/>
+    </Grid>
+
+    <Grid Margin="5" Height="242" HorizontalAlignment="Center" VerticalAlignment="Center" Width="172" Background="#FFC66D33"
+          Grid.Row="0" Grid.Column="0" Grid.RowSpan="2">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition/>
+        <ColumnDefinition/>
+        <ColumnDefinition/>
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition/>
+        <RowDefinition/>
+        <RowDefinition/>
+        <RowDefinition/>
+        <RowDefinition/>
+        <RowDefinition/>
+        <RowDefinition/>
+        <RowDefinition/>
+        <RowDefinition/>
+        <RowDefinition/>
+        <RowDefinition/>
+        <RowDefinition/>
+      </Grid.RowDefinitions>
+      <MediaElement HorizontalAlignment="Left" Height="83" VerticalAlignment="Top" Width="152" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="4" Margin="10,0.667,0,0"/>
+    </Grid>
+  </Grid>
+</UserControl>
