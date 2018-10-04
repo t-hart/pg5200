@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ignore="http://www.galasoft.ch/ignore"
         mc:Ignorable="d ignore"
-        Height="309.449"
-        Width="746.785"
+        Height="367.671"
+        Width="759.23"
         Title="Pokémon TCG Card Creator"
         DataContext="{Binding Main, Source={StaticResource Locator}}">
 
@@ -17,49 +17,55 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
+    <TabControl HorizontalAlignment="Left" Height="323" VerticalAlignment="Top" Width="741" Margin="10,10,0,-19.667">
+        <TabItem Header="Pokémon">
+            <Grid x:Name="LayoutRoot">
 
-    <Grid x:Name="LayoutRoot">
-
-        <TextBlock FontSize="36"
+                <TextBlock FontSize="36"
                    FontWeight="Bold"
                    Foreground="Purple"
                    Text="{Binding WelcomeTitle}"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Center"
                    TextWrapping="Wrap" Margin="236,18,44,0" />
-        <TextBox HorizontalAlignment="Right" Height="23" Margin="0,85,11.333,0" TextWrapping="Wrap" Text="Surfing" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Right" Height="23" Margin="0,113,11.333,0" TextWrapping="Wrap" Text="Pikachu" VerticalAlignment="Top" Width="120"/>
-        <ComboBox HorizontalAlignment="Right" Margin="0,113,154.333,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox HorizontalAlignment="Right" Margin="0,188,154.333,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox HorizontalAlignment="Right" Margin="0,188,11.333,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Right" Height="23" Margin="0,148,153.333,0" TextWrapping="Wrap" Text="Level" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Right" Height="23" Margin="0,148,10.333,0" TextWrapping="Wrap" Text="HP" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Save and reset" HorizontalAlignment="Right" Margin="0,250,86.333,0" VerticalAlignment="Top" Width="104"/>
-        <Button Content="Save" HorizontalAlignment="Right" Margin="0,250,210.333,0" VerticalAlignment="Top" Width="63"/>
-        <Button Content="Reset" HorizontalAlignment="Right" Margin="0,249,9.333,0" VerticalAlignment="Top" Width="63" RenderTransformOrigin="0.441,-1.933"/>
-        <Button Content="Browse cards" HorizontalAlignment="Right" Margin="0,250,291.333,0" VerticalAlignment="Top" Width="87"/>
-        <Grid HorizontalAlignment="Left" Height="252" Margin="10,18,0,0" VerticalAlignment="Top" Width="172" Background="#FFC66D33">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <MediaElement HorizontalAlignment="Left" Height="83" VerticalAlignment="Top" Width="152" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="4" Margin="10,0.667,0,0"/>
-        </Grid>
+                <TextBox HorizontalAlignment="Right" Height="23" Margin="0,85,11.333,0" TextWrapping="Wrap" Text="Surfing" VerticalAlignment="Top" Width="120"/>
+                <TextBox HorizontalAlignment="Right" Height="23" Margin="0,113,11.333,0" TextWrapping="Wrap" Text="Pikachu" VerticalAlignment="Top" Width="120"/>
+                <ComboBox HorizontalAlignment="Right" Margin="0,113,154.333,0" VerticalAlignment="Top" Width="120"/>
+                <ComboBox HorizontalAlignment="Right" Margin="0,188,154.333,0" VerticalAlignment="Top" Width="120"/>
+                <ComboBox HorizontalAlignment="Right" Margin="0,188,11.333,0" VerticalAlignment="Top" Width="120"/>
+                <TextBox HorizontalAlignment="Right" Height="23" Margin="0,148,153.333,0" TextWrapping="Wrap" Text="Level" VerticalAlignment="Top" Width="120"/>
+                <TextBox HorizontalAlignment="Right" Height="23" Margin="0,148,10.333,0" TextWrapping="Wrap" Text="HP" VerticalAlignment="Top" Width="120"/>
+                <Button Content="Save and reset" HorizontalAlignment="Right" Margin="0,250,86.333,0" VerticalAlignment="Top" Width="104"/>
+                <Button Content="Save" HorizontalAlignment="Right" Margin="0,250,210.333,0" VerticalAlignment="Top" Width="63"/>
+                <Button Content="Reset" HorizontalAlignment="Right" Margin="0,249,9.333,0" VerticalAlignment="Top" Width="63" RenderTransformOrigin="0.441,-1.933"/>
+                <Button Content="Browse cards" HorizontalAlignment="Right" Margin="0,250,291.333,0" VerticalAlignment="Top" Width="87"/>
+                <Grid HorizontalAlignment="Left" Height="252" Margin="10,18,0,0" VerticalAlignment="Top" Width="172" Background="#FFC66D33">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <MediaElement HorizontalAlignment="Left" Height="83" VerticalAlignment="Top" Width="152" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="4" Margin="10,0.667,0,0"/>
+                </Grid>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Moves">
+            <Grid Background="#FFE5E5E5"/>
+        </TabItem>
+    </TabControl>
 
-    </Grid>
 </Window>
