@@ -19,8 +19,8 @@
                    Margin="5"
                    Foreground="Purple"
                    Text="Card editor"
-                   Grid.Row="0"
-                   Grid.Column="1"
+                   Grid.ColumnSpan="2"
+                   HorizontalAlignment="Center"
                    TextWrapping="Wrap" VerticalAlignment="Center"/>
 
     <Grid Margin="5"
@@ -34,47 +34,66 @@
         <RowDefinition Height="Auto"/>
         <RowDefinition Height="Auto"/>
         <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
       </Grid.RowDefinitions>
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="1*"/>
         <ColumnDefinition Width="1*"/>
       </Grid.ColumnDefinitions>
 
-      <TextBox Text="Surfing" Grid.Row="0" Grid.Column="0" Margin="3"/>
-      <TextBox Text="Pikachu" Grid.Row="0" Grid.Column="1" Margin="3"/>
-      <ComboBox Grid.Row="1" Grid.Column="0"  Margin="3"/>
-      <ComboBox Grid.Row="1" Grid.Column="1"  Margin="3"/>
-      <ComboBox Grid.Row="2" Grid.Column="0"  Margin="3"/>
-      <TextBox Text="HP" Grid.Row="3" Grid.Column="0"  Margin="3"/>
-      <TextBox Text="Level" Grid.Row="3" Grid.Column="1"  Margin="3"/>
-      <Button Grid.Row="4" Grid.Column="0" Content="Save and reset" Margin="3"/>
-      <Button Grid.Row="4" Grid.Column="1" Content="Save" Margin="3"/>
-      <Button Grid.Row="5" Grid.Column="0" Content="Reset" Margin="3"/>
-      <Button Grid.Row="5" Grid.Column="1" Content="Browse cards" Margin="3"/>
+      <!-- labels -->
+      <Label Content="Modifier"></Label>
+      <Label Content="Pokémon name" Grid.Column="1"></Label>
+      <Label Content="Move 1" Grid.Row="2"></Label>
+      <Label Content="Move 2" Grid.Row="2" Grid.Column="1"></Label>
+      <Label Content="Type" Grid.Row="4"></Label>
+      <!-- <Label Content="Move 2" Grid.Row="4" Grid.Column="1"></Label> -->
+      <Label Content="Hit Points" Grid.Row="6"></Label>
+      <Label Content="Level" Grid.Row="6" Grid.Column="1"></Label>
+
+      <!-- inputs -->
+      <TextBox Text="Surfing" Grid.Row="1" Grid.Column="0" Margin="3"/>
+      <TextBox Text="Pikachu" Grid.Row="1" Grid.Column="1" Margin="3"/>
+      <ComboBox Grid.Row="3" Grid.Column="0"  Margin="3"/>
+      <ComboBox Grid.Row="3" Grid.Column="1"  Margin="3"/>
+      <ComboBox Grid.Row="5" Grid.Column="0"  Margin="3"/>
+      <TextBox Text="HP" Grid.Row="7" Grid.Column="0"  Margin="3"/>
+      <TextBox Text="Level" Grid.Row="7" Grid.Column="1"  Margin="3"/>
+      <Button Grid.Row="8" Grid.Column="0" Content="Save and reset" Margin="3"/>
+      <Button Grid.Row="8" Grid.Column="1" Content="Save" Margin="3"/>
+      <Button Grid.Row="9" Grid.Column="0" Content="Reset" Margin="3"/>
+      <Button Grid.Row="9" Grid.Column="1" Content="Browse cards" Margin="3"/>
     </Grid>
 
-    <Grid Margin="5" Height="242" HorizontalAlignment="Center" VerticalAlignment="Center" Width="172" Background="#FFC66D33"
-          Grid.Row="0" Grid.Column="0" Grid.RowSpan="2">
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition/>
-        <ColumnDefinition/>
-        <ColumnDefinition/>
-      </Grid.ColumnDefinitions>
-      <Grid.RowDefinitions>
-        <RowDefinition/>
-        <RowDefinition/>
-        <RowDefinition/>
-        <RowDefinition/>
-        <RowDefinition/>
-        <RowDefinition/>
-        <RowDefinition/>
-        <RowDefinition/>
-        <RowDefinition/>
-        <RowDefinition/>
-        <RowDefinition/>
-        <RowDefinition/>
-      </Grid.RowDefinitions>
-      <MediaElement HorizontalAlignment="Left" Height="83" VerticalAlignment="Top" Width="152" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="4" Margin="10,0.667,0,0"/>
-    </Grid>
+    <Viewbox Margin="5" Grid.Row="1" Stretch="Uniform">
+      <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+          Grid.Row="1" Grid.RowSpan="2" MinWidth="189" MinHeight="264">
+        <Grid.Background>
+          <ImageBrush ImageSource="Assets/squirtle.png"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition/>
+          <ColumnDefinition/>
+          <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+          <RowDefinition/>
+          <RowDefinition/>
+          <RowDefinition/>
+          <RowDefinition/>
+          <RowDefinition/>
+          <RowDefinition/>
+          <RowDefinition/>
+          <RowDefinition/>
+          <RowDefinition/>
+          <RowDefinition/>
+          <RowDefinition/>
+          <RowDefinition/>
+        </Grid.RowDefinitions>
+      </Grid>
+    </Viewbox>
   </Grid>
 </UserControl>
