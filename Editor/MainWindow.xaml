@@ -23,7 +23,7 @@
         <editor:CardTab/>
       </TabItem>
       <TabItem Header="Moves">
-        <Grid Background="#FFE5E5E5"/>
+        <editor:MoveTab/>
       </TabItem>
     </TabControl>
   </Grid>

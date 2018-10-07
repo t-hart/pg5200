@@ -3,6 +3,7 @@ using Editor.Model;
 
 namespace Editor.ViewModel
 {
+
     /// <summary>
     /// This class contains properties that the main View can data bind to.
     /// <para>
@@ -12,6 +13,8 @@ namespace Editor.ViewModel
     public class MainViewModel : ViewModelBase
     {
         private readonly IDataService _dataService;
+
+        public IFieldable CardTab { get; set; }
 
         /// <summary>
         /// The <see cref="WelcomeTitle" /> property's name.
