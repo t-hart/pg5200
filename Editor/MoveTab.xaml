@@ -6,13 +6,13 @@
              xmlns:local="clr-namespace:Editor"
              mc:Ignorable="d"
              >
-  <Grid Margin="5">
+  <Grid>
     <Grid.RowDefinitions>
       <RowDefinition Height="Auto"/>
     </Grid.RowDefinitions>
     <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="1*"/>
-      <ColumnDefinition Width="1*"/>
+      <ColumnDefinition Width="Auto"/>
+      <ColumnDefinition/>
     </Grid.ColumnDefinitions>
     <Viewbox Margin="5" Stretch="Uniform">
       <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
