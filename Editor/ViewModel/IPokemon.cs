@@ -15,7 +15,5 @@ namespace Editor.ViewModel
         uint Level { get; set; }
         [NotNull] string DexEntry { get; set; }
         Rarity Rarity { get; set; }
-
-//        string Name => $"{Modifier} {Pokémon}".Trim();
     }
 }
