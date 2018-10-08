@@ -2,7 +2,7 @@ using JetBrains.Annotations;
 
 namespace Editor.ViewModel
 {
-    interface IFieldable
+    public interface IFieldable
     {
         uint HP { get; set; }
         string Title { get; set; }

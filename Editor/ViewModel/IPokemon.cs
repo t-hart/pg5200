@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using NonEmptyList;
 using Pokemon;
@@ -12,6 +13,7 @@ namespace Editor.ViewModel
         string Pokémon { get; set; }
         Type<IType> Weakness { get; set; }
         Type<IType> Resistance { get; set; }
+        [NotNull] Dictionary<TypeEnum, uint> RetreatCost { get; set; }
         [NotNull] NonEmptyList<IMove> Moves { get; set; }
         // [CanBeNull] public Pokémon.Ability Ability { get; set; }
         uint Level { get; set; }
