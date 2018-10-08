@@ -1,5 +1,6 @@
 using GalaSoft.MvvmLight;
 using Editor.Model;
+using Editor.Interfaces;
 
 namespace Editor.ViewModel
 {

@@ -1,8 +1,8 @@
 using System.Collections.Generic;
+using Editor.CardProperties;
 using JetBrains.Annotations;
-using Pokemon;
 
-namespace Editor.ViewModel
+namespace Editor.Interfaces
 {
     interface IPokemon : IFieldable
     {
@@ -12,7 +12,7 @@ namespace Editor.ViewModel
         Type Weakness { get; set; }
         Type Resistance { get; set; }
         [NotNull] Dictionary<Type, uint> RetreatCost { get; set; }
-        uint Level { get; set; }
+        IStat Level { get; set; }
         [NotNull] string DexEntry { get; set; }
         Rarity Rarity { get; set; }
     }

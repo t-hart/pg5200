@@ -1,4 +1,4 @@
-namespace Pokemon
+namespace Editor.CardProperties
 {
     public enum Type
     {
