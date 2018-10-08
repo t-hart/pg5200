@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace Pokemon
 {
-    public interface IEnergy<T> where T : IType { }
+    public interface IEnergy { }
 }

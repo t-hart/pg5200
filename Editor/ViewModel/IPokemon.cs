@@ -1,21 +1,17 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
-using NonEmptyList;
 using Pokemon;
 
 namespace Editor.ViewModel
 {
     interface IPokemon : IFieldable
     {
-//        Type<IType> Type { get; set; }
-        TypeEnum Type { get; set; }
+        Type Type { get; set; }
         [NotNull] string Modifier { get; set; } // e.g. 'Surfing', "Team Rocket's", etc.
         string Pokémon { get; set; }
-        Type<IType> Weakness { get; set; }
-        Type<IType> Resistance { get; set; }
-        [NotNull] Dictionary<TypeEnum, uint> RetreatCost { get; set; }
-        [NotNull] NonEmptyList<IMove> Moves { get; set; }
-        // [CanBeNull] public Pokémon.Ability Ability { get; set; }
+        Type Weakness { get; set; }
+        Type Resistance { get; set; }
+        [NotNull] Dictionary<Type, uint> RetreatCost { get; set; }
         uint Level { get; set; }
         [NotNull] string DexEntry { get; set; }
         Rarity Rarity { get; set; }

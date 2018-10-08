@@ -46,14 +46,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IEnergy.cs" />
-    <Compile Include="IEvolutionStage.cs" />
-    <Compile Include="IPlayable.cs" />
-    <Compile Include="IType.cs" />
     <Compile Include="IMove.cs" />
-    <Compile Include="Type.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rarity.cs" />
-    <Compile Include="TypeEnum.cs" />
+    <Compile Include="Type.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
