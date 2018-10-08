@@ -1,10 +1,10 @@
 using JetBrains.Annotations;
 
-namespace Editor.ViewModel
+namespace Editor.Interfaces
 {
-    public interface IFieldable
+    public interface IFieldable : IResettable
     {
-        uint HP { get; set; }
+        IStat HP { get; set; }
         string Title { get; set; }
         [CanBeNull] string ImageUrl { get; set; }
     }
