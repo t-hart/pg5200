@@ -20,7 +20,7 @@
   <Grid x:Name="LayoutRoot">
     <TabControl>
       <TabItem Header="Pokémon">
-        <editor:CardTab/>
+        <editor:CardTab DataContext="{Binding Card}"/>
       </TabItem>
       <TabItem Header="Moves">
         <editor:MoveTab/>

@@ -25,7 +25,6 @@
 
 
     <Grid Margin="5"
-          Grid.Row="1"
           Grid.Column="1"
           >
       <Grid.RowDefinitions>
@@ -54,10 +53,10 @@
       <TextBox Text="50" Grid.Row="1" Grid.Column="1" Margin="3"/>
       <TextBox Text="12" Grid.Row="3" Margin="3" Grid.ColumnSpan="2"/>
       <TextBox Text="Flip a coin. If heads, the defending pokemon is now paralyzed." Grid.Row="5" Margin="3" Grid.ColumnSpan="2" Height="50"/>
-      <Button Grid.Row="6" Content="Save and reset" Margin="3"/>
-      <Button Grid.Row="6" Content="Save" Margin="3" Grid.Column="1"/>
-      <Button Grid.Row="7" Content="Reset" Margin="3"/>
-      <Button Grid.Row="7" Content="Browse moves" Margin="3" Grid.Column="1"/>
+      <Button Grid.Row="6" Content="Save and reset" Margin="3" Padding="5,1"/>
+      <Button Grid.Row="6" Content="Save" Margin="3" Grid.Column="1" Padding="5,1"/>
+      <Button Grid.Row="7" Content="Reset" Margin="3" Padding="5,1"/>
+      <Button Grid.Row="7" Content="Browse moves" Margin="3" Grid.Column="1" Padding="5,1"/>
     </Grid>
 
   </Grid>

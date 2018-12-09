@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Editor</RootNamespace>
     <AssemblyName>Editor</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -97,7 +97,9 @@
     <Compile Include="Interfaces\IFieldable.cs" />
     <Compile Include="Interfaces\IResettable.cs" />
     <Compile Include="Interfaces\IStat.cs" />
+    <Compile Include="Config.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\Pokemon.cs" />
     <Compile Include="ViewModel\Stat.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Page Include="CardTab.xaml">
@@ -155,6 +157,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\squirtle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StringUtils\StringUtils.csproj">
+      <Project>{3F347FD1-0EFA-4B6C-BE3E-0B9B28227ABC}</Project>
+      <Name>StringUtils</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

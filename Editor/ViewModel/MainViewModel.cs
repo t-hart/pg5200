@@ -15,7 +15,7 @@ namespace Editor.ViewModel
     {
         private readonly IDataService _dataService;
 
-        public IFieldable CardTab { get; set; }
+        public CardTabViewModel Card { get; set; } = new CardTabViewModel();
 
         /// <summary>
         /// The <see cref="WelcomeTitle" /> property's name.
