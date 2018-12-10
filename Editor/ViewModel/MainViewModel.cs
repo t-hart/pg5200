@@ -15,7 +15,7 @@ namespace Editor.ViewModel
     {
         private readonly IDataService _dataService;
 
-        public CardTabViewModel Card { get; set; } = new CardTabViewModel();
+        public CardTabViewModel Card { get; set; } = new CardTabViewModel(new Pokemon(name: "Gastly", modifier: "MMMMMMMMMMMM", dexEntry: "Almost invisible, this gaseous Pokémon cloaks the target and puts it to sleep without notice."));
 
         /// <summary>
         /// The <see cref="WelcomeTitle" /> property's name.

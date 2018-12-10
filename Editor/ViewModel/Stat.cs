@@ -1,5 +1,4 @@
 using System;
-using System.Windows.Forms.VisualStyles;
 using Editor.Interfaces;
 using JetBrains.Annotations;
 
@@ -7,7 +6,7 @@ namespace Editor.ViewModel
 {
     public sealed class Stat : IStat
     {
-        private Values _values;
+        private readonly Values _values;
 
         public string Name { get; }
 

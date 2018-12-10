@@ -29,33 +29,35 @@
         <RowDefinition Height="Auto"/>
         <RowDefinition Height="Auto"/>
         <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
       </Grid.RowDefinitions>
       <Grid.ColumnDefinitions>
-        <ColumnDefinition/>
-        <ColumnDefinition/>
+        <ColumnDefinition Width="156"/>
+        <ColumnDefinition Width="156"/>
       </Grid.ColumnDefinitions>
 
       <!-- labels -->
-      <Label Content="Modifier"/>
+      <Label Content="Modifier" Height="21"/>
       <Label Content="Name" Grid.Column="1"/>
       <Label Content="Move 1" Grid.Row="2"/>
       <Label Content="Move 2" Grid.Row="2" Grid.Column="1"/>
       <Label Content="Type" Grid.Row="4"/>
-      <Label Content="Hit Points" Grid.Row="6"/>
-      <Label Content="Level" Grid.Row="6" Grid.Column="1"/>
+      <Label Content="Pokédex Entry" Grid.Row="7"/>
 
       <!-- inputs -->
-      <TextBox Text="Surfing" Grid.Row="1" Grid.Column="0" Margin="3"/>
+      <TextBox Text="{Binding Modifier}" Grid.Row="1" Grid.Column="0" Margin="3"/>
       <TextBox Text="{Binding Name}" Grid.Row="1" Grid.Column="1" Margin="3"/>
       <ComboBox Grid.Row="3" Grid.Column="0"  Margin="3"/>
       <ComboBox Grid.Row="3" Grid.Column="1"  Margin="3"/>
       <ComboBox Grid.Row="5" Grid.Column="0"  Margin="3"/>
-      <TextBox Text="50" Grid.Row="7" Grid.Column="0"  Margin="3"/>
-      <TextBox Text="12" Grid.Row="7" Grid.Column="1"  Margin="3"/>
-      <Button Grid.Row="8" Grid.Column="0" Content="Save and reset" Margin="3" Padding="5,1"/>
-      <Button Grid.Row="8" Grid.Column="1" Content="Save" Margin="3" Padding="5,1"/>
-      <Button Grid.Row="9" Grid.Column="0" Content="Reset" Margin="3" Padding="5,1"/>
-      <Button Grid.Row="9" Grid.Column="1" Content="Browse cards" Margin="3" Padding="5,1"/>
+      <local:StatInput Grid.Column="0" Grid.Row="6" Margin="3" DataContext="{Binding HP}"/>
+      <local:StatInput Grid.Column="1" Grid.Row="6" Margin="3" DataContext="{Binding Level}"/>
+      <TextBox Text="{Binding DexEntry}" Grid.Row="8" Grid.ColumnSpan="2" TextWrapping="Wrap" AcceptsReturn="True" Margin="3"/>
+      <Button Grid.Row="9" Grid.Column="0" Content="Save and reset" Margin="3" Padding="5,1"/>
+      <Button Grid.Row="9" Grid.Column="1" Content="Save" Margin="3" Padding="5,1"/>
+      <Button Grid.Row="10" Grid.Column="0" Content="Reset" Margin="3" Padding="5,1"/>
+      <Button Grid.Row="10" Grid.Column="1" Content="Browse cards" Margin="3" Padding="5,1"/>
     </Grid>
 
     <Viewbox Margin="5" Grid.Row="1" Stretch="Uniform">

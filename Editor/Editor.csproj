@@ -91,6 +91,10 @@
     <Compile Include="MoveTab.xaml.cs">
       <DependentUpon>MoveTab.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StatInput.xaml.cs">
+      <DependentUpon>StatInput.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\StatInputViewModel.cs" />
     <Compile Include="ViewModel\CardTabViewModel.cs" />
     <Compile Include="Interfaces\ICounter.cs" />
     <Compile Include="Interfaces\IPokemon.cs" />
@@ -119,6 +123,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MoveTab.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StatInput.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

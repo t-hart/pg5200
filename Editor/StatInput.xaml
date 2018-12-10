@@ -1,0 +1,26 @@
+<UserControl x:Class="Editor.StatInput"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Editor"
+             mc:Ignorable="d" 
+             d:DataContext="{d:DesignData StatInputViewModel}"
+             >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="{Binding Stat.Name}" HorizontalAlignment="Right" Grid.Column="0" Margin="5,1,5,0" VerticalAlignment="Center" HorizontalContentAlignment="Right" FontWeight="Bold" MinWidth="40"/>
+        <TextBox HorizontalAlignment="Center" TextWrapping="Wrap" Grid.Column="1" Width="30" Text="{Binding Stat.Value}" VerticalAlignment="Center" HorizontalContentAlignment="Center" Height="18" Margin="5,0"/>
+        <Button Content="+" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20"
+            Padding="1" Height="20" Margin="5,0" Command="{Binding IncrementCommand}" CommandParameter="{Binding Stat}" />
+        <Button Content="-" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20"
+            Padding="1" Height="20" Margin="5,0"
+            Command="{Binding DecrementCommand}"
+            CommandParameter="{Binding Stat}" />
+    </Grid>
+</UserControl>

@@ -18,28 +18,39 @@ namespace Editor.ViewModel
             throw new NotImplementedException();
         }
 
+        private IStat _hp = Stat.HP(10);
         public IStat HP { get; set; }
         public string ImageUrl { get; set; }
         public Type Type { get; set; }
-        public string Modifier { get; set; }
+
+        private string _modifier = "";
+        public string Modifier
+        {
+            get => _modifier;
+            set { if (value != _modifier) { _modifier = value.Truncate(Config.MaxModifierLength); } }
+        }
+
         [NotNull] private string _name = "";
 
-        [NotNull] public string Name
+        [NotNull]
+        public string Name
         {
             get => _name;
-            set
-            {
-                if (value == _name) { return; }
-
-                _name = value.Truncate(Config.MaxNameLength);
-            }
+            set { if (value != _name) { _name = value.Truncate(Config.MaxNameLength); } }
         }
 
         [CanBeNull] public Type? Weakness { get; set; }
         [CanBeNull] public Type? Resistance { get; set; }
         [CanBeNull] public Dictionary<Type, uint> RetreatCost { get; set; }
         public IStat Level { get; set; }
-        public string DexEntry { get; set; }
+
+        private string _dexEntry = "";
+        public string DexEntry
+        {
+            get => _dexEntry;
+            set { if (value != _dexEntry) { _dexEntry = value.Truncate(Config.MaxDexEntryLength); } }
+        }
+        
         public Rarity Rarity { get; set; }
 
         public Pokemon([NotNull] string modifier = "",
