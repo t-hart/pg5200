@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Linq.Expressions;
 using Editor.Interfaces;
 using Editor.Model;
@@ -12,7 +14,7 @@ namespace Editor.ViewModel
     {
         public IPokemon ContentViewModel { get; set; }
 
-        public string Name
+        [NotNull] public string Name
         {
             get => ContentViewModel.Name;
             set
@@ -22,7 +24,7 @@ namespace Editor.ViewModel
                 RaisePropertyChanged("");
             }
         }
-        public string Modifier
+        [NotNull] public string Modifier
         {
             get => ContentViewModel.Modifier;
             set
@@ -32,7 +34,7 @@ namespace Editor.ViewModel
                 RaisePropertyChanged("");
             }
         }
-        public string DexEntry
+        [NotNull] public string DexEntry
         {
             get => ContentViewModel.DexEntry;
             set
@@ -42,8 +44,23 @@ namespace Editor.ViewModel
                 RaisePropertyChanged("");
             }
         }
-        public StatInputViewModel HP { get; set; }
-        public StatInputViewModel Level { get; set; }
+        [NotNull] public StatInputViewModel HP { get; set; }
+        [NotNull] public StatInputViewModel Level { get; set; }
+
+        [NotNull]
+        public List<CardProperties.Type> Types { get; set; } =
+            Enum.GetValues(typeof(CardProperties.Type)).Cast<CardProperties.Type>().ToList();
+
+        public int Type
+        {
+            get => (int) ContentViewModel.Type;
+            set
+            {
+                if (Type == value) { return; }
+                ContentViewModel.Type = Types[value];
+                RaisePropertyChanged("");
+            }
+        }
 
 
         public CardTabViewModel([NotNull] IPokemon contentViewModel)

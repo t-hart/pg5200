@@ -30,14 +30,8 @@ namespace Editor.ViewModel
         /// </summary>
         public string WelcomeTitle
         {
-            get
-            {
-                return _welcomeTitle;
-            }
-            set
-            {
-                Set(ref _welcomeTitle, value);
-            }
+            get => _welcomeTitle;
+            set => Set(ref _welcomeTitle, value);
         }
 
         /// <summary>

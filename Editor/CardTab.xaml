@@ -50,7 +50,7 @@
       <TextBox Text="{Binding Name}" Grid.Row="1" Grid.Column="1" Margin="3"/>
       <ComboBox Grid.Row="3" Grid.Column="0"  Margin="3"/>
       <ComboBox Grid.Row="3" Grid.Column="1"  Margin="3"/>
-      <ComboBox Grid.Row="5" Grid.Column="0"  Margin="3"/>
+      <ComboBox Grid.Row="5" Grid.Column="0"  Margin="3" ItemsSource="{Binding Types}" SelectedIndex="{Binding Type}"/>
       <local:StatInput Grid.Column="0" Grid.Row="6" Margin="3" DataContext="{Binding HP}"/>
       <local:StatInput Grid.Column="1" Grid.Row="6" Margin="3" DataContext="{Binding Level}"/>
       <TextBox Text="{Binding DexEntry}" Grid.Row="8" Grid.ColumnSpan="2" TextWrapping="Wrap" AcceptsReturn="True" Margin="3"/>
