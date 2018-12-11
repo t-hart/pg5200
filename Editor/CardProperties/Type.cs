@@ -12,6 +12,6 @@ namespace Editor.CardProperties
         Grass,
         Psychic,
         Steel,
-        Water,
+        Water
     }
 }

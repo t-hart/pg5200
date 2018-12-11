@@ -6,88 +6,91 @@
              xmlns:local="clr-namespace:Editor"
              d:DataContext="{d:DesignData CardTabViewModel}"
              mc:Ignorable="d">
-  <Grid>
-    <Grid.RowDefinitions>
-      <RowDefinition Height="Auto"/>
-    </Grid.RowDefinitions>
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="Auto"/>
-      <ColumnDefinition/>
-    </Grid.ColumnDefinitions>
-    <Grid Margin="5"
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Margin="5"
     Grid.Row="1"
     Grid.Column="1"
           >
-      <Grid.RowDefinitions>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-      </Grid.RowDefinitions>
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="156"/>
-        <ColumnDefinition Width="156"/>
-      </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
 
-      <!-- labels -->
-      <Label Content="Modifier" Height="21"/>
-      <Label Content="Name" Grid.Column="1"/>
-      <Label Content="Move 1" Grid.Row="2"/>
-      <Label Content="Move 2" Grid.Row="2" Grid.Column="1"/>
-      <Label Content="Type" Grid.Row="4"/>
-      <Label Content="Pokédex Entry" Grid.Row="7"/>
+            <!-- labels -->
+            <Label Content="Modifier"/>
+            <Label Content="{Binding ContentViewModel.Name}" Grid.Column="1"/>
+            <Label Content="Move 1" Grid.Row="2"/>
+            <Label Content="Move 2" Grid.Row="2" Grid.Column="1"/>
+            <Label Content="Type" Grid.Row="4"/>
+            <Label Content="Pokédex Entry" Grid.Row="8"/>
 
-      <!-- inputs -->
-      <TextBox Text="{Binding Modifier}" Grid.Row="1" Grid.Column="0" Margin="3"/>
-      <TextBox Text="{Binding Name}" Grid.Row="1" Grid.Column="1" Margin="3"/>
-      <ComboBox Grid.Row="3" Grid.Column="0"  Margin="3"/>
-      <ComboBox Grid.Row="3" Grid.Column="1"  Margin="3"/>
-      <ComboBox Grid.Row="5" Grid.Column="0"  Margin="3" ItemsSource="{Binding Types}" SelectedIndex="{Binding Type}"/>
-      <local:StatInput Grid.Column="0" Grid.Row="6" Margin="3" DataContext="{Binding HP}"/>
-      <local:StatInput Grid.Column="1" Grid.Row="6" Margin="3" DataContext="{Binding Level}"/>
-      <TextBox Text="{Binding DexEntry}" Grid.Row="8" Grid.ColumnSpan="2" TextWrapping="Wrap" AcceptsReturn="True" Margin="3"/>
-      <Button Grid.Row="9" Grid.Column="0" Content="Save and reset" Margin="3" Padding="5,1"/>
-      <Button Grid.Row="9" Grid.Column="1" Content="Save" Margin="3" Padding="5,1"/>
-      <Button Grid.Row="10" Grid.Column="0" Content="Reset" Margin="3" Padding="5,1"/>
-      <Button Grid.Row="10" Grid.Column="1" Content="Browse cards" Margin="3" Padding="5,1"/>
-    </Grid>
+            <!-- inputs -->
+            <TextBox Text="{Binding ContentViewModel.Modifier}" Grid.Row="1" Grid.Column="0" Margin="3"/>
+            <TextBox Text="{Binding ContentViewModel.Name}" Grid.Row="1" Grid.Column="1" Margin="3"/>
+            <ComboBox Grid.Row="3" Grid.Column="0"  Margin="3"/>
+            <ComboBox Grid.Row="3" Grid.Column="1"  Margin="3"/>
+            <ComboBox Grid.Row="5" Grid.Column="0"  Margin="3" ItemsSource="{Binding Types}" SelectedIndex="{Binding Type}"/>
+            <local:StatInput Grid.Column="0" Grid.Row="6" Margin="3" DataContext="{Binding HP}"/>
+            <local:StatInput Grid.Column="1" Grid.Row="6" Margin="3" DataContext="{Binding Level}"/>
+            <local:ToggleableComboBox Grid.Column="0" Grid.Row="7" Margin="3" DataContext="{Binding Weakness}"/>
+            <local:ToggleableComboBox Grid.Column="1" Grid.Row="7" Margin="3" DataContext="{Binding Resistance}"/>
+            <TextBox Text="{Binding ContentViewModel.DexEntry}" Grid.Row="9" Grid.ColumnSpan="2" TextWrapping="Wrap" AcceptsReturn="True" Margin="3"/>
+            <Button Grid.Row="10" Grid.Column="0" Content="Save and reset" Margin="3" Padding="5,1"/>
+            <Button Grid.Row="10" Grid.Column="1" Content="Save" Margin="3" Padding="5,1"/>
+            <Button Grid.Row="11" Grid.Column="0" Content="Reset" Margin="3" Padding="5,1"/>
+            <Button Grid.Row="11" Grid.Column="1" Content="Browse cards" Margin="3" Padding="5,1"/>
+        </Grid>
 
-    <Viewbox Margin="5" Grid.Row="1" Stretch="Uniform">
-      <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+        <Viewbox Margin="5" Grid.Row="1" Stretch="Uniform">
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
           MinWidth="189" MinHeight="264">
-        <Grid.Background>
-          <ImageBrush ImageSource="Assets/squirtle.png"/>
-        </Grid.Background>
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition/>
-          <ColumnDefinition/>
-          <ColumnDefinition/>
-          <ColumnDefinition/>
-          <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-          <RowDefinition/>
-          <RowDefinition/>
-          <RowDefinition/>
-          <RowDefinition/>
-          <RowDefinition/>
-          <RowDefinition/>
-          <RowDefinition/>
-          <RowDefinition/>
-          <RowDefinition/>
-          <RowDefinition/>
-          <RowDefinition/>
-          <RowDefinition/>
-        </Grid.RowDefinitions>
-      </Grid>
-    </Viewbox>
-  </Grid>
+                <Grid.Background>
+                    <ImageBrush ImageSource="Assets/squirtle.png"/>
+                </Grid.Background>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+            </Grid>
+        </Viewbox>
+    </Grid>
 </UserControl>

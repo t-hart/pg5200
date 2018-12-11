@@ -11,7 +11,7 @@ using Type = Editor.CardProperties.Type;
 
 namespace Editor.ViewModel
 {
-    class Pokemon : IPokemon, IResettable
+    class Pokemon : IPokemon
     {
         public IResettable Reset()
         {
@@ -39,8 +39,8 @@ namespace Editor.ViewModel
             set { if (value != _name) { _name = value.Truncate(Config.MaxNameLength); } }
         }
 
-        [CanBeNull] public Type? Weakness { get; set; }
-        [CanBeNull] public Type? Resistance { get; set; }
+        [CanBeNull] public ToggleableEnum<Type> Weakness { get; set; }
+        [CanBeNull] public ToggleableEnum<Type> Resistance { get; set; }
         [CanBeNull] public Dictionary<Type, uint> RetreatCost { get; set; }
         public IStat Level { get; set; }
 
@@ -72,8 +72,8 @@ namespace Editor.ViewModel
             HP = hp ?? Stat.HP(10);
             Level = level ?? Stat.Level();
             Type = type;
-            Weakness = weakness;
-            Resistance = resistance;
+            Weakness = new ToggleableEnum<Type>(weakness ?? 0, weakness == null);
+            Resistance = new ToggleableEnum<Type>(resistance ?? 0, resistance == null);
             RetreatCost = retreatCost;
             DexEntry = dexEntry;
             Rarity = rarity;

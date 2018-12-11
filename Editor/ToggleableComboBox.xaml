@@ -1,0 +1,22 @@
+<UserControl x:Class="Editor.ToggleableComboBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Editor.CardProperties"
+             mc:Ignorable="d" 
+             d:DataContext="{d:DesignData ToggleableComboBoxViewModel}"
+             >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="{Binding Label}" HorizontalAlignment="Right" Grid.Column="0" Margin="5,1,5,0" VerticalAlignment="Center" HorizontalContentAlignment="Right" FontWeight="Bold" MinWidth="40"/>
+        <CheckBox HorizontalAlignment="Center" Margin="5,1,5,0" VerticalAlignment="Center" Grid.Column="1"
+                  IsChecked="{Binding IsActive, Mode=TwoWay}"/>
+        <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,1,6,2" Width="71" Grid.Column="2"
+                  IsEnabled="{Binding IsActive}" ItemsSource="{Binding Options}" SelectedIndex="{Binding CurrentIndex}"/>
+    </Grid>
+</UserControl>

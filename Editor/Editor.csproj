@@ -26,6 +26,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <RunCodeAnalysis>true</RunCodeAnalysis>
+    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -76,6 +77,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\ToggleableComboBoxViewModel.cs" />
+    <Compile Include="ToggleableComboBox.xaml.cs">
+      <DependentUpon>ToggleableComboBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CardProperties\Rarity.cs" />
     <Compile Include="CardProperties\Type.cs" />
     <Compile Include="CardTab.xaml.cs">
@@ -94,6 +99,7 @@
     <Compile Include="StatInput.xaml.cs">
       <DependentUpon>StatInput.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\ToggleableEnum.cs" />
     <Compile Include="ViewModel\StatInputViewModel.cs" />
     <Compile Include="ViewModel\CardTabViewModel.cs" />
     <Compile Include="Interfaces\ICounter.cs" />
@@ -103,9 +109,13 @@
     <Compile Include="Interfaces\IStat.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="ViewModel\Pokemon.cs" />
-    <Compile Include="ViewModel\Stat.cs" />
+    <Compile Include="Model\Pokemon.cs" />
+    <Compile Include="Model\Stat.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Page Include="ToggleableComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CardTab.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

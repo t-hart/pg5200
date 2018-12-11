@@ -15,9 +15,9 @@
        - energy cost
        # - secondary effect? status, heal, force opponent out?
        - description (with char limit.)
-   - [ ] at least three numerical stats inputs which limit input to numbers and limits max and min values based on something [0/3]
-     - [ ] hp 10/200, only products of 10 (round up?)
-     - [ ] level 1/100
+   - [-] at least three numerical stats inputs which limit input to numbers and limits max and min values based on something [2/3]
+     - [X] hp 10/200, only products of 10 (round up?)
+     - [X] level 1/100
      - [ ] move damage
    - [ ] a field that brings up a file selector to select an image for the card. it should verify that the file is an image, and the image should be displayed in the editor
    - [ ] the editor should have a button for storing the card to a database, empty all fields and be ready for the next card
