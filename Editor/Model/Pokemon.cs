@@ -72,8 +72,8 @@ namespace Editor.ViewModel
             HP = hp ?? Stat.HP(10);
             Level = level ?? Stat.Level();
             Type = type;
-            Weakness = new ToggleableEnum<Type>(weakness ?? 0, weakness == null);
-            Resistance = new ToggleableEnum<Type>(resistance ?? 0, resistance == null);
+            Weakness = new ToggleableEnum<Type>(weakness ?? 0, weakness != null);
+            Resistance = new ToggleableEnum<Type>(resistance ?? 0, resistance != null);
             RetreatCost = retreatCost;
             DexEntry = dexEntry;
             Rarity = rarity;

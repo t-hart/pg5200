@@ -8,9 +8,9 @@ namespace Editor.ViewModel
 {
     public class ToggleableComboBoxViewModel<T>: ViewModelBase where T: Enum
     {
-        [NotNull] private List<T> Options { get; }
+        [NotNull] public List<T> Options { get; } = Enum.GetValues(typeof(T)).Cast<T>().ToList();
         [NotNull] private ToggleableEnum<T>  Toggleable { get; }
-        [NotNull] private string Label { get; }
+        [NotNull] public string Label { get; }
 
         public int CurrentIndex
         {
@@ -33,7 +33,6 @@ namespace Editor.ViewModel
         {
             Label = label;
             Toggleable = toggleable;
-            Options = Enum.GetValues(typeof(T)).Cast<T>().ToList();
         }
     }
 }
