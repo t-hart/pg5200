@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Editor.ViewModel.Interfaces;
 
 namespace Editor.ViewModel
 {
-    public class ToggleableEnum<T> where T: Enum
+    public class ToggleableEnum<T> : IToggleableEnum<T> where T: Enum
     {
         public bool IsActive { get; set; }
         public T Current { get; set; }

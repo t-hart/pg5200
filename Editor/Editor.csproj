@@ -77,6 +77,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ComboBoxLabeled.xaml.cs">
+      <DependentUpon>ComboBoxLabeled.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Interfaces\ILabeledInputViewModel.cs" />
+    <Compile Include="TextBoxLabeled.xaml.cs">
+      <DependentUpon>TextBoxLabeled.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\TextBoxLabeledViewModel.cs" />
+    <Compile Include="ViewModel\ComboBoxLabeledViewModel.cs" />
+    <Compile Include="ViewModel\Interfaces\IComboBoxViewModel.cs" />
+    <Compile Include="ViewModel\Interfaces\IToggleableComboBoxViewModel.cs" />
+    <Compile Include="ViewModel\Interfaces\IToggleableEnum.cs" />
     <Compile Include="ViewModel\ToggleableComboBoxViewModel.cs" />
     <Compile Include="ToggleableComboBox.xaml.cs">
       <DependentUpon>ToggleableComboBox.xaml</DependentUpon>
@@ -89,7 +101,7 @@
     <Compile Include="Design\DesignDataService.cs" />
     <Compile Include="Interfaces\IEnergy.cs" />
     <Compile Include="Interfaces\IMove.cs" />
-    <Compile Include="ITab.cs" />
+    <Compile Include="Interfaces\ITab.cs" />
     <Compile Include="Model\DataItem.cs" />
     <Compile Include="Model\DataService.cs" />
     <Compile Include="Model\IDataService.cs" />
@@ -112,6 +124,14 @@
     <Compile Include="Model\Pokemon.cs" />
     <Compile Include="Model\Stat.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Page Include="ComboBoxLabeled.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TextBoxLabeled.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ToggleableComboBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

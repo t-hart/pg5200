@@ -16,25 +16,13 @@ namespace Editor.ViewModel
     {
         public IPokemon ContentViewModel { get; set; }
 
-        [NotNull] public StatInputViewModel HP { get; set; }
-        [NotNull] public StatInputViewModel Level { get; set; }
-        [NotNull] public ToggleableComboBoxViewModel<Type> Weakness { get; set; }
-        [NotNull] public ToggleableComboBoxViewModel<Type> Resistance { get; set; }
+        [NotNull] public StatInputViewModel HP { get; }
+        [NotNull] public StatInputViewModel Level { get; }
+        [NotNull] public ToggleableComboBoxViewModel<Type> Weakness { get; }
+        [NotNull] public ToggleableComboBoxViewModel<Type> Resistance { get; }
+        [NotNull] public ComboBoxLabeledViewModel<Type> Type { get; }
+        [NotNull] public TextBoxLabeledViewModel<string> Modifier { get; }
 
-        [NotNull]
-        public List<CardProperties.Type> Types { get; set; } =
-            Enum.GetValues(typeof(CardProperties.Type)).Cast<CardProperties.Type>().ToList();
-
-        public int Type
-        {
-            get => (int)ContentViewModel.Type;
-            set
-            {
-                if (Type == value) { return; }
-                ContentViewModel.Type = Types[value];
-                RaisePropertyChanged("");
-            }
-        }
 
 
         public CardTabViewModel([NotNull] IPokemon contentViewModel)
@@ -45,6 +33,8 @@ namespace Editor.ViewModel
             Level = new StatInputViewModel(ContentViewModel.Level);
             Weakness = new ToggleableComboBoxViewModel<Type>(ContentViewModel.Weakness, "Weakness");
             Resistance = new ToggleableComboBoxViewModel<Type>(ContentViewModel.Resistance, "Resistance");
+            Type = new ComboBoxLabeledViewModel<Type>(ContentViewModel.Type, "Type");
+            Modifier = new TextBoxLabeledViewModel<string>(ContentViewModel.Modifier, "Modifier");
         }
 
     }

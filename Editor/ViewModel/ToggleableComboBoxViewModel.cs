@@ -1,15 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Editor.ViewModel.Interfaces;
 using GalaSoft.MvvmLight;
 using JetBrains.Annotations;
 
 namespace Editor.ViewModel
 {
-    public class ToggleableComboBoxViewModel<T>: ViewModelBase where T: Enum
+    public class ToggleableComboBoxViewModel<T> : ViewModelBase, IToggleableComboBoxViewModel<T> where T : Enum
     {
         [NotNull] public List<T> Options { get; } = Enum.GetValues(typeof(T)).Cast<T>().ToList();
-        [NotNull] private ToggleableEnum<T>  Toggleable { get; }
+        [NotNull] private IToggleableEnum<T> Toggleable { get; }
         [NotNull] public string Label { get; }
 
         public int CurrentIndex
@@ -26,7 +27,7 @@ namespace Editor.ViewModel
         public bool IsActive
         {
             get => Toggleable.IsActive;
-            set 
+            set
             {
                 if (IsActive == value) { return; }
                 Toggleable.IsActive = value;
@@ -34,7 +35,7 @@ namespace Editor.ViewModel
             }
         }
 
-        public ToggleableComboBoxViewModel([NotNull] ToggleableEnum<T> toggleable, [NotNull] string label)
+        public ToggleableComboBoxViewModel([NotNull] IToggleableEnum<T> toggleable, [NotNull] string label)
         {
             Label = label;
             Toggleable = toggleable;
