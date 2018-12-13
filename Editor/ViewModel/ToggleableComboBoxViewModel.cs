@@ -26,7 +26,12 @@ namespace Editor.ViewModel
         public bool IsActive
         {
             get => Toggleable.IsActive;
-            set => Toggleable.IsActive = value;
+            set 
+            {
+                if (IsActive == value) { return; }
+                Toggleable.IsActive = value;
+                RaisePropertyChanged("");
+            }
         }
 
         public ToggleableComboBoxViewModel([NotNull] ToggleableEnum<T> toggleable, [NotNull] string label)
