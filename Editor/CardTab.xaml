@@ -23,7 +23,6 @@
             <ColumnDefinition Width="200"/>
         </Grid.ColumnDefinitions>
 
-        <!-- labels -->
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -42,8 +41,8 @@
             <Label FontWeight="Bold" Content="Name" Grid.Row="1"/>
             <TextBox Text="{Binding ContentViewModel.Name}" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center"/>
 
-            <Image Margin="0,4" Grid.Column="0"  Grid.ColumnSpan="2" Grid.Row="2" Source="C:\Users\thomas\pg5200_card-creator\Editor\Assets\squirte_image.png" />
-            <Button Content="Select image" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Command="SelectImageCommand"/>
+            <Image Margin="0,4" Grid.Column="0"  Grid.ColumnSpan="2" Stretch="Uniform" Grid.Row="2" Source="{Binding ContentViewModel.ImageUrl}" />
+            <Button Content="Select image" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Command="{Binding OpenCommand}"/>
 
         </Grid>
 

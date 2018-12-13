@@ -1,13 +1,9 @@
-using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Linq.Expressions;
+using System.Windows.Input;
 using Editor.Interfaces;
-using Editor.Model;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using JetBrains.Annotations;
+using Microsoft.Win32;
 using Type = Editor.CardProperties.Type;
 
 namespace Editor.ViewModel
@@ -22,17 +18,30 @@ namespace Editor.ViewModel
         [NotNull] public ToggleableComboBoxViewModel<Type> Resistance { get; }
         [NotNull] public ComboBoxViewModel<Type> Type { get; }
 
+        public RelayCommand OpenCommand { get; }
 
+        private void OpenFile()
+        {
+            //var dialog = new OpenFileDialog { InitialDirectory = "." };
+            var dialog = new OpenFileDialog();
+            var result = dialog.ShowDialog();
+            if (result.HasValue && result.Value)
+            {
+                ContentViewModel.ImageUrl = dialog.FileName;
+                RaisePropertyChanged("");
+            }
+        }
 
         public CardTabViewModel([NotNull] IPokemon contentViewModel)
         {
             ContentViewModel = contentViewModel;
-
             HP = new CounterInputViewModel(ContentViewModel.HP);
             Level = new CounterInputViewModel(ContentViewModel.Level);
             Weakness = new ToggleableComboBoxViewModel<Type>(ContentViewModel.Weakness);
             Resistance = new ToggleableComboBoxViewModel<Type>(ContentViewModel.Resistance);
             Type = new ComboBoxViewModel<Type>(ContentViewModel.Type);
+
+            OpenCommand = new RelayCommand(OpenFile);
         }
 
     }
