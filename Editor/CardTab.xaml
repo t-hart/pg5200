@@ -11,13 +11,12 @@
     Grid.Column="1"
           >
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
@@ -25,22 +24,30 @@
         </Grid.ColumnDefinitions>
 
         <!-- labels -->
-        <Grid VerticalAlignment="Top">
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
+
             <Label FontWeight="Bold" Content="Modifier" VerticalAlignment="Center"/>
-            <TextBox Text="{Binding ContentViewModel.Modifier}" Grid.Column="1" Margin="3" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding ContentViewModel.Modifier}" Grid.Column="1" VerticalAlignment="Center"/>
+
             <Label FontWeight="Bold" Content="Name" Grid.Row="1"/>
-            <TextBox Text="{Binding ContentViewModel.Name}" Grid.Column="1" Grid.Row="1" Margin="3" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding ContentViewModel.Name}" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center"/>
+
+            <Image Margin="0,4" Grid.Column="0"  Grid.ColumnSpan="2" Grid.Row="2" Source="C:\Users\thomas\pg5200_card-creator\Editor\Assets\squirte_image.png" />
+            <Button Content="Select image" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Command="SelectImageCommand"/>
+
         </Grid>
 
-        <Grid Grid.RowSpan="2" Grid.Column="1" Margin="5, 0, 0, 0">
+        <Grid Grid.Column="1" Margin="5, 0, 0, 0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -53,28 +60,28 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <Label FontWeight="Bold" Content="Type"/>
-            <local:ComboBox DataContext="{Binding Type}" Grid.Row="0" Grid.Column="1" Margin="3"/>
+            <local:ComboBox DataContext="{Binding Type}" Grid.Row="0" Grid.Column="1" Margin="3" VerticalAlignment="Top"/>
 
             <Label FontWeight="Bold" Content="Level" Grid.Row="1"/>
-            <local:CounterInput Grid.Column="1" Grid.Row="1" Margin="3" DataContext="{Binding Level}"/>
+            <local:CounterInput Grid.Column="1" Grid.Row="1" Margin="3" DataContext="{Binding Level}" VerticalAlignment="Top"/>
 
             <Label FontWeight="Bold" Content="HP" Grid.Row="2"/>
-            <local:CounterInput Grid.Column="1" Grid.Row="2" Margin="3" DataContext="{Binding HP}"/>
+            <local:CounterInput Grid.Column="1" Grid.Row="2" Margin="3" DataContext="{Binding HP}" VerticalAlignment="Top"/>
 
             <Label FontWeight="Bold" Content="Weakness" Grid.Row="3"/>
-            <local:ToggleableComboBox Grid.Column="1" Grid.Row="3" Margin="3" DataContext="{Binding Weakness}"/>
+            <local:ToggleableComboBox Grid.Column="1" Grid.Row="3" Margin="3" DataContext="{Binding Weakness}" VerticalAlignment="Top"/>
 
             <Label FontWeight="Bold" Content="Resistance" Grid.Row="4"/>
-            <local:ToggleableComboBox Grid.Column="1" Grid.Row="4" Margin="3" DataContext="{Binding Resistance}"/>
+            <local:ToggleableComboBox Grid.Column="1" Grid.Row="4" Margin="3" DataContext="{Binding Resistance}" VerticalAlignment="Top"/>
 
         </Grid>
-        <Label  FontWeight="Bold" Content="Pokédex Entry" Grid.Row="3"/>
+        <Label  FontWeight="Bold" Content="Pokédex Entry" Grid.Row="2"/>
 
         <!-- inputs -->
-        <TextBox Text="{Binding ContentViewModel.DexEntry}" Grid.Row="4" Grid.ColumnSpan="2" TextWrapping="Wrap" AcceptsReturn="True" Margin="3"/>
-        <Button Grid.Row="5" Grid.Column="0" Content="Save and reset" Margin="3" Padding="5,1"/>
-        <Button Grid.Row="5" Grid.Column="1" Content="Save" Margin="3" Padding="5,1"/>
-        <Button Grid.Row="6" Grid.Column="0" Content="Reset" Margin="3" Padding="5,1"/>
-        <Button Grid.Row="6" Grid.Column="1" Content="Browse cards" Margin="3" Padding="5,1"/>
+        <TextBox Text="{Binding ContentViewModel.DexEntry}" Grid.Row="3" Grid.ColumnSpan="2" TextWrapping="Wrap" AcceptsReturn="True" Margin="3"/>
+        <Button Grid.Row="4" Grid.Column="0" Content="Save and reset" Margin="3" Padding="5,1"/>
+        <Button Grid.Row="4" Grid.Column="1" Content="Save" Margin="3" Padding="5,1"/>
+        <Button Grid.Row="5" Grid.Column="0" Content="Reset" Margin="3" Padding="5,1"/>
+        <Button Grid.Row="5" Grid.Column="1" Content="Browse cards" Margin="3" Padding="5,1"/>
     </Grid>
 </UserControl>
