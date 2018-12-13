@@ -53,7 +53,8 @@ namespace Editor.ViewModel
         
         public Rarity Rarity { get; set; }
 
-        public Pokemon([NotNull] string modifier = "",
+        public Pokemon(
+            [NotNull] string modifier = "",
             [NotNull] string name = "",
             [CanBeNull] IStat hp = null,
             [CanBeNull] IStat level = null,
