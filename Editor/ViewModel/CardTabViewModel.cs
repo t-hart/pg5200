@@ -16,12 +16,11 @@ namespace Editor.ViewModel
     {
         public IPokemon ContentViewModel { get; set; }
 
-        [NotNull] public StatInputViewModel HP { get; }
-        [NotNull] public StatInputViewModel Level { get; }
+        [NotNull] public CounterInputViewModel HP { get; }
+        [NotNull] public CounterInputViewModel Level { get; }
         [NotNull] public ToggleableComboBoxViewModel<Type> Weakness { get; }
         [NotNull] public ToggleableComboBoxViewModel<Type> Resistance { get; }
-        [NotNull] public ComboBoxLabeledViewModel<Type> Type { get; }
-        [NotNull] public TextBoxLabeledViewModel<string> Modifier { get; }
+        [NotNull] public ComboBoxViewModel<Type> Type { get; }
 
 
 
@@ -29,12 +28,11 @@ namespace Editor.ViewModel
         {
             ContentViewModel = contentViewModel;
 
-            HP = new StatInputViewModel(ContentViewModel.HP);
-            Level = new StatInputViewModel(ContentViewModel.Level);
-            Weakness = new ToggleableComboBoxViewModel<Type>(ContentViewModel.Weakness, "Weakness");
-            Resistance = new ToggleableComboBoxViewModel<Type>(ContentViewModel.Resistance, "Resistance");
-            Type = new ComboBoxLabeledViewModel<Type>(ContentViewModel.Type, "Type");
-            Modifier = new TextBoxLabeledViewModel<string>(ContentViewModel.Modifier, "Modifier");
+            HP = new CounterInputViewModel(ContentViewModel.HP);
+            Level = new CounterInputViewModel(ContentViewModel.Level);
+            Weakness = new ToggleableComboBoxViewModel<Type>(ContentViewModel.Weakness);
+            Resistance = new ToggleableComboBoxViewModel<Type>(ContentViewModel.Resistance);
+            Type = new ComboBoxViewModel<Type>(ContentViewModel.Type);
         }
 
     }

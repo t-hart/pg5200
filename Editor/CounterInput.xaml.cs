@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Editor
 {
     /// <summary>
-    /// Interaction logic for StatInput.xaml
+    /// Interaction logic for CounterInput.xaml
     /// </summary>
-    public partial class StatInput : UserControl
+    public partial class CounterInput : UserControl
     {
-        public StatInput()
+        public CounterInput()
         {
             InitializeComponent();
         }

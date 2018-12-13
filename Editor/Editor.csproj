@@ -77,9 +77,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ComboBox.xaml.cs">
+      <DependentUpon>ComboBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ComboBoxLabeled.xaml.cs">
       <DependentUpon>ComboBoxLabeled.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\ComboBoxViewModel.cs" />
     <Compile Include="ViewModel\Interfaces\ILabeledInputViewModel.cs" />
     <Compile Include="TextBoxLabeled.xaml.cs">
       <DependentUpon>TextBoxLabeled.xaml</DependentUpon>
@@ -108,11 +112,11 @@
     <Compile Include="MoveTab.xaml.cs">
       <DependentUpon>MoveTab.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StatInput.xaml.cs">
-      <DependentUpon>StatInput.xaml</DependentUpon>
+    <Compile Include="CounterInput.xaml.cs">
+      <DependentUpon>CounterInput.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\ToggleableEnum.cs" />
-    <Compile Include="ViewModel\StatInputViewModel.cs" />
+    <Compile Include="ViewModel\CounterInputViewModel.cs" />
     <Compile Include="ViewModel\CardTabViewModel.cs" />
     <Compile Include="Interfaces\ICounter.cs" />
     <Compile Include="Interfaces\IPokemon.cs" />
@@ -124,6 +128,10 @@
     <Compile Include="Model\Pokemon.cs" />
     <Compile Include="Model\Stat.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Page Include="ComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ComboBoxLabeled.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -156,7 +164,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StatInput.xaml">
+    <Page Include="CounterInput.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

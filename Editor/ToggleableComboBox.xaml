@@ -9,15 +9,12 @@
              >
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="{Binding Label}" Grid.Column="0" Margin="0,1,0,0"
-               VerticalAlignment="Center" HorizontalContentAlignment="Left" FontWeight="Bold" MinWidth="40" />
-        <CheckBox HorizontalAlignment="Center" Margin="0,1,0,0" VerticalAlignment="Center" Grid.Column="1"
+        <CheckBox HorizontalAlignment="Center" Margin="0,1,0,0" VerticalAlignment="Center" Grid.Column="0"
                   IsChecked="{Binding IsActive, Mode=TwoWay}"/>
-        <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,1,6,2" Width="80" Grid.Column="2"
+        <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,1,0,2" Width="80" Grid.Column="1"
                   IsEnabled="{Binding IsActive}" ItemsSource="{Binding Options}" SelectedIndex="{Binding CurrentIndex}"/>
     </Grid>
 </UserControl>
