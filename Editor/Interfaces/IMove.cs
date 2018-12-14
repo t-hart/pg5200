@@ -9,6 +9,5 @@ namespace Editor.Interfaces
         [NotNull] string Name { get; set; }
         [NotNull] string Description { get; set; }
         [NotNull] IStat Damage { get; set; }
-        [NotNull] Dictionary<Type, uint> EnergyCost { get; set; }
     }
 }
