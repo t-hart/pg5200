@@ -83,6 +83,7 @@
     <Compile Include="ComboBoxLabeled.xaml.cs">
       <DependentUpon>ComboBoxLabeled.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ImageConfig.cs" />
     <Compile Include="ViewModel\ComboBoxViewModel.cs" />
     <Compile Include="ViewModel\Interfaces\ILabeledInputViewModel.cs" />
     <Compile Include="TextBoxLabeled.xaml.cs">

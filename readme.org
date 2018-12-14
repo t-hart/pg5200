@@ -1,9 +1,9 @@
 * PG5200 Exam - Card Creator
 
 **  Task
-   Requirements [1/11]
+   Requirements [3/11]
    - [X] One text field for name (max 12 characters)
-   - [ ] drop down menu for +type+ move.
+   - [X] drop down menu for +type+ move.
    - [ ] An additional window where you can define a new +type+ move
      - Moves should have at least a name, max and min stats
        - move name
@@ -19,7 +19,7 @@
      - [X] hp 10/200, only products of 10 (round up?)
      - [X] level 1/100
      - [ ] move damage
-   - [ ] a field that brings up a file selector to select an image for the card. it should verify that the file is an image, and the image should be displayed in the editor
+   - [X] a field that brings up a file selector to select an image for the card. it should verify that the file is an image, and the image should be displayed in the editor
    - [ ] the editor should have a button for storing the card to a database, empty all fields and be ready for the next card
    - [ ] the editor should have a browser that lets you look through existing cards and open them
    - [ ] it should be possible to delete cards from the database

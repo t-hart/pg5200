@@ -1,7 +1,11 @@
+using System.IO;
+using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 using Editor.Interfaces;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
 using JetBrains.Annotations;
 using Microsoft.Win32;
 using Type = Editor.CardProperties.Type;
@@ -34,12 +38,16 @@ namespace Editor.ViewModel
 
         private void OpenFile()
         {
-            //var dialog = new OpenFileDialog { InitialDirectory = "." };
             var dialog = new OpenFileDialog();
             var result = dialog.ShowDialog();
-            if (result.HasValue && result.Value)
+            if (!(result.HasValue && result.Value)) { return; }
+            if (ImageConfig.IsValidImageFile(dialog.FileName))
             {
                 ImagePath = dialog.FileName;
+            }
+            else
+            {
+                MessageBox.Show($"This appears not to be a valid image file. Please try using a file with one of the following extensions: {string.Join(", ", ImageConfig.ValidExtensions)}", "Error");
             }
         }
 
