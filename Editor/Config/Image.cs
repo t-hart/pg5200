@@ -4,17 +4,17 @@ using System.IO;
 using System.Linq;
 using JetBrains.Annotations;
 
-namespace Editor
+namespace Editor.Config
 {
-    public static class ImageConfig
+    public static class Image
     {
-        private enum ImageFileExtension
+        private enum Extensions
         {
             Jpeg,
             Jpg,
             Png
         }
-        public static IEnumerable<string> ValidExtensions { get; }= Enum.GetNames(typeof(ImageFileExtension)).Select(x => $".{x.ToLower()}");
+        public static IEnumerable<string> ValidExtensions { get; }= Enum.GetNames(typeof(Extensions)).Select(x => $".{x.ToLower()}");
 
         public static bool IsValidImageFile([NotNull] string path) =>
             ValidExtensions.Any(x => x == (Path.GetExtension(path).ToLower()));
