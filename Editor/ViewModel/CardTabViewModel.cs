@@ -18,6 +18,18 @@ namespace Editor.ViewModel
         [NotNull] public ToggleableComboBoxViewModel<Type> Resistance { get; }
         [NotNull] public ComboBoxViewModel<Type> Type { get; }
 
+        [NotNull]
+        public string ImagePath
+        {
+            get => ContentViewModel.ImagePath;
+            set
+            {
+                if (ImagePath == value) { return; }
+                ContentViewModel.ImagePath = value;
+                RaisePropertyChanged("");
+            }
+        }
+
         public RelayCommand OpenCommand { get; }
 
         private void OpenFile()
@@ -27,8 +39,7 @@ namespace Editor.ViewModel
             var result = dialog.ShowDialog();
             if (result.HasValue && result.Value)
             {
-                ContentViewModel.ImageUrl = dialog.FileName;
-                RaisePropertyChanged("");
+                ImagePath = dialog.FileName;
             }
         }
 

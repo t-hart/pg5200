@@ -20,7 +20,7 @@ namespace Editor.ViewModel
 
         private IStat _hp = Stat.HP(10);
         public IStat HP { get; set; }
-        public string ImageUrl { get; set; }
+        public string ImagePath { get; set; }
         public Type Type { get; set; }
 
         private string _modifier = "";
@@ -69,7 +69,7 @@ namespace Editor.ViewModel
         {
             Modifier = modifier;
             Name = name;
-            ImageUrl = imageUrl;
+            ImagePath = imageUrl;
             HP = hp ?? Stat.HP(10);
             Level = level ?? Stat.Level();
             Type = type;

@@ -6,6 +6,6 @@ namespace Editor.Interfaces
     {
         IStat HP { get; set; }
         string Name { get; set; }
-        [CanBeNull] string ImageUrl { get; set; }
+        [CanBeNull] string ImagePath { get; set; }
     }
 }
