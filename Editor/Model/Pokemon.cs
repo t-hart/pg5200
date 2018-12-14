@@ -18,7 +18,6 @@ namespace Editor.ViewModel
             throw new NotImplementedException();
         }
 
-        private IStat _hp = Stat.HP(10);
         public IStat HP { get; set; }
         public string ImagePath { get; set; }
         public Type Type { get; set; }
@@ -41,7 +40,6 @@ namespace Editor.ViewModel
 
         [CanBeNull] public ToggleableEnum<Type> Weakness { get; set; }
         [CanBeNull] public ToggleableEnum<Type> Resistance { get; set; }
-        [CanBeNull] public Dictionary<Type, uint> RetreatCost { get; set; }
         public IStat Level { get; set; }
 
         private string _dexEntry = "";
@@ -56,8 +54,8 @@ namespace Editor.ViewModel
         public Pokemon(
             [NotNull] string modifier = "",
             [NotNull] string name = "",
-            [CanBeNull] IStat hp = null,
-            [CanBeNull] IStat level = null,
+             uint hp = 10,
+             uint level = 5,
             [NotNull] string imageUrl = "",
             Type type = Type.Colorless,
             Type? weakness = null,
@@ -70,12 +68,11 @@ namespace Editor.ViewModel
             Modifier = modifier;
             Name = name;
             ImagePath = imageUrl;
-            HP = hp ?? Stat.HP(10);
-            Level = level ?? Stat.Level();
+            HP = Stat.HP(hp);
+            Level = Stat.Level(level);
             Type = type;
             Weakness = new ToggleableEnum<Type>(weakness ?? 0, weakness != null);
             Resistance = new ToggleableEnum<Type>(resistance ?? 0, resistance != null);
-            RetreatCost = retreatCost;
             DexEntry = dexEntry;
             Rarity = rarity;
         }

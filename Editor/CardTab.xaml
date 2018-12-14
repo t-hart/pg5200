@@ -42,12 +42,13 @@
 
         </Grid>
 
-        <Grid Grid.Column="1" Margin="5, 0, 0, 0">
+        <Grid Grid.Column="1" Margin="5, 0, 0, 0" VerticalAlignment="Stretch">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
@@ -70,11 +71,13 @@
             <local:CounterInput Grid.Column="1" Grid.Row="3" DataContext="{Binding HP}" VerticalAlignment="Top"/>
 
             <Label FontWeight="Bold" Content="Weakness" Grid.Row="4"/>
-            <local:ToggleableComboBox Grid.Column="1" Grid.Row="4" DataContext="{Binding Weakness}" VerticalAlignment="Top"/>
+            <local:ToggleableComboBox Grid.Column="1" Grid.Row="4" DataContext="{Binding Weakness}"/>
 
             <Label FontWeight="Bold" Content="Resistance" Grid.Row="5"/>
             <local:ToggleableComboBox Grid.Column="1" Grid.Row="5" DataContext="{Binding Resistance}" VerticalAlignment="Top"/>
 
+            <Label FontWeight="Bold" Content="Rarity" Grid.Row="6"/>
+            <local:ComboBox DataContext="{Binding Rarity}" Grid.Row="6" Grid.Column="1" VerticalAlignment="Top"/>
         </Grid>
         <Label  FontWeight="Bold" Content="Pokédex Entry" Grid.Row="2"/>
 

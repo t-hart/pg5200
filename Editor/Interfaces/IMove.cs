@@ -4,12 +4,11 @@ using JetBrains.Annotations;
 
 namespace Editor.Interfaces
 {
-    public struct IMove
+    public interface IMove : IResettable
     {
         [NotNull] string Name { get; set; }
         [NotNull] string Description { get; set; }
-        Type Type { get; set; }
-        IStat Damage { get; set; }
-        Dictionary<Type, uint> EnergyCost { get; set; }
+        [NotNull] IStat Damage { get; set; }
+        [NotNull] Dictionary<Type, uint> EnergyCost { get; set; }
     }
 }

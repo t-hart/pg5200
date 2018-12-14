@@ -4,60 +4,54 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Editor"
+             d:DataContext="{d:DesignData MoveTabViewModel}"
              mc:Ignorable="d"
              >
-  <Grid>
-    <Grid.RowDefinitions>
-      <RowDefinition Height="Auto"/>
-    </Grid.RowDefinitions>
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="Auto"/>
-      <ColumnDefinition/>
-    </Grid.ColumnDefinitions>
-    <Viewbox Margin="5" Stretch="Uniform">
-      <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-          MinWidth="189" MinHeight="264">
-        <Grid.Background>
-          <ImageBrush ImageSource="Assets/squirtle.png"/>
-        </Grid.Background>
-      </Grid>
-    </Viewbox>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
 
+        <Grid Margin="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-    <Grid Margin="5"
-          Grid.Column="1"
-          >
-      <Grid.RowDefinitions>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-      </Grid.RowDefinitions>
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="1*"/>
-        <ColumnDefinition Width="1*"/>
-      </Grid.ColumnDefinitions>
+            <Label FontWeight="Bold" Content="Name" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding ContentViewModel.Name}" Grid.Column="1" VerticalAlignment="Center"/>
 
-      <!-- labels -->
-      <Label Content="Name"/>
-      <Label Content="Damage" Grid.Column="1"/>
-      <Label Content="Energy cost" Grid.Row="2"/>
-      <Label Content="Description" Grid.Row="4"/>
+            <Label FontWeight="Bold" Content="Damage" Grid.Row="1"/>
+            <local:CounterInput Grid.Column="1" Grid.Row="1" DataContext="{Binding Damage}" VerticalAlignment="Top"/>
+        </Grid>
 
-      <!-- inputs -->
-      <TextBox Text="Bubblebeam" Grid.Row="1" Margin="3"/>
-      <TextBox Text="50" Grid.Row="1" Grid.Column="1" Margin="3"/>
-      <TextBox Text="12" Grid.Row="3" Margin="3" Grid.ColumnSpan="2"/>
-      <TextBox Text="Flip a coin. If heads, the defending pokemon is now paralyzed." Grid.Row="5" Margin="3" Grid.ColumnSpan="2" Height="50"/>
-      <Button Grid.Row="6" Content="Save and reset" Margin="3" Padding="5,1"/>
-      <Button Grid.Row="6" Content="Save" Margin="3" Grid.Column="1" Padding="5,1"/>
-      <Button Grid.Row="7" Content="Reset" Margin="3" Padding="5,1"/>
-      <Button Grid.Row="7" Content="Browse moves" Margin="3" Grid.Column="1" Padding="5,1"/>
+        <Grid Margin="3" Column="1" Width="150">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label FontWeight="Bold" Content="Description" VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2"/>
+
+            <TextBox Text="{Binding ContentViewModel.Description}" Grid.Row="3" Grid.ColumnSpan="1" TextWrapping="Wrap" Margin="7,0,0,0" MaxWidth="193" AcceptsReturn="True"/>
+
+        </Grid>
+
+        <Button Grid.Row="1" Content="Save and reset" Margin="3" Padding="5,1"/>
+        <Button Grid.Row="1" Content="Save" Margin="3" Grid.Column="1" Padding="5,1"/>
+        <Button Grid.Row="2" Content="Reset" Margin="3" Padding="5,1"/>
+        <Button Grid.Row="2" Content="Browse moves" Margin="3" Grid.Column="1" Padding="5,1"/>
     </Grid>
 
-  </Grid>
 </UserControl>

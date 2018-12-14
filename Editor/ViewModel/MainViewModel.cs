@@ -17,6 +17,7 @@ namespace Editor.ViewModel
 
         //public CardTabViewModel Card { get; set; } = new CardTabViewModel(new Pokemon(name: "Gastly", modifier: "Claire's", dexEntry: "Almost invisible, this gaseous Pokémon cloaks the target and puts it to sleep without notice.", imageUrl: @"C:\Users\thomas\pg5200_card-creator\Editor\Assets/squirtle.png"));
         public CardTabViewModel Card { get; set; } = new CardTabViewModel(new Pokemon(name: "Gastly", modifier: "Claire's", dexEntry: "Almost invisible, this gaseous Pokémon cloaks the target and puts it to sleep without notice."));
+        public MoveTabViewModel Move { get; set; } = new MoveTabViewModel(new Move(name: "Bubblebeam", damage: 50, description: "Flip a coin. If heads, the defending Pokémon is now paralyzed."));
 
         /// <summary>
         /// The <see cref="WelcomeTitle" /> property's name.

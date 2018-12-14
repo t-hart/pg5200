@@ -23,7 +23,7 @@
         <editor:CardTab DataContext="{Binding Card}"/>
       </TabItem>
       <TabItem Header="Moves">
-        <editor:MoveTab/>
+        <editor:MoveTab DataContext="{Binding Move}"/>
       </TabItem>
     </TabControl>
   </Grid>

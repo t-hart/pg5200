@@ -1,4 +1,4 @@
-﻿using System.Windows;
+using System.Windows;
 using Editor.ViewModel;
 
 namespace Editor
@@ -15,6 +15,11 @@ namespace Editor
         {
             InitializeComponent();
             Closing += (s, e) => ViewModelLocator.Cleanup();
+        }
+
+        private void MoveTab_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
