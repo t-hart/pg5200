@@ -4,8 +4,8 @@ namespace Editor.Interfaces
 {
     public interface IFieldable : IResettable
     {
-        IStat HP { get; set; }
-        string Name { get; set; }
-        [CanBeNull] string ImagePath { get; set; }
+        [NotNull] IStat HP { get; set; }
+        [NotNull] string Name { get; set; }
+        [NotNull] string ImagePath { get; set; }
     }
 }

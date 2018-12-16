@@ -19,14 +19,14 @@ namespace Editor.ViewModel
         public string Name
         {
             get => _name;
-            set { if (value != _name) { _name = value.Truncate(Config.MaxMoveNameLength); } }
+            set { if (value != _name) { _name = value.Truncate(Config.General.MaxMoveNameLength); } }
         }
 
         [NotNull] private string _description = "";
         public string Description
         {
             get => _description;
-            set { if (value != _description) { _description = value.Truncate(Config.MaxMoveDescriptionLength); } }
+            set { if (value != _description) { _description = value.Truncate(Config.General.MaxMoveDescriptionLength); } }
         }
 
         public IStat Damage { get; set; }

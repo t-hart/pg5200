@@ -53,6 +53,9 @@
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -83,7 +86,13 @@
     <Compile Include="ComboBoxLabeled.xaml.cs">
       <DependentUpon>ComboBoxLabeled.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ImageConfig.cs" />
+    <Compile Include="Config\Image.cs" />
+    <Compile Include="IO\IIOResult.cs" />
+    <Compile Include="IO\IIOService.cs" />
+    <Compile Include="IO\IImageLoader.cs" />
+    <Compile Include="IO\ImageLoader.cs" />
+    <Compile Include="IO\IOResult.cs" />
+    <Compile Include="IO\Json.cs" />
     <Compile Include="ViewModel\Move.cs" />
     <Compile Include="ViewModel\MoveTabViewModel.cs" />
     <Compile Include="ViewModel\ComboBoxViewModel.cs" />
@@ -126,7 +135,7 @@
     <Compile Include="Interfaces\IFieldable.cs" />
     <Compile Include="Interfaces\IResettable.cs" />
     <Compile Include="Interfaces\IStat.cs" />
-    <Compile Include="Config.cs" />
+    <Compile Include="Config\General.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="Model\Pokemon.cs" />
     <Compile Include="Model\Stat.cs" />
@@ -208,6 +217,10 @@
     <Resource Include="Assets\squirtle.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Result\Result.csproj">
+      <Project>{25A4421E-7B43-46A7-9594-903D159061D2}</Project>
+      <Name>Result</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StringUtils\StringUtils.csproj">
       <Project>{3F347FD1-0EFA-4B6C-BE3E-0B9B28227ABC}</Project>
       <Name>StringUtils</Name>

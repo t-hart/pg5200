@@ -1,6 +1,11 @@
+using System;
+using System.Diagnostics;
+using System.Linq;
 using System.Windows;
 using Editor.CardProperties;
+using Editor.Config;
 using Editor.Interfaces;
+using Editor.IO;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using JetBrains.Annotations;
@@ -13,12 +18,18 @@ namespace Editor.ViewModel
     {
         public IPokemon ContentViewModel { get; set; }
 
+        [NotNull] private readonly IImageLoader ImageLoader;
+        [NotNull] private readonly IIOService JsonService;
+
         [NotNull] public CounterInputViewModel HP { get; }
         [NotNull] public CounterInputViewModel Level { get; }
         [NotNull] public ToggleableComboBoxViewModel<Type> Weakness { get; }
         [NotNull] public ToggleableComboBoxViewModel<Type> Resistance { get; }
         [NotNull] public ComboBoxViewModel<Type> Type { get; }
         [NotNull] public ComboBoxViewModel<Rarity> Rarity { get; }
+        public RelayCommand OpenCommand { get; }
+        public RelayCommand ExportJsonCommand { get; }
+        public RelayCommand ImportJsonCommand { get; }
 
         [NotNull]
         public string ImagePath
@@ -32,26 +43,35 @@ namespace Editor.ViewModel
             }
         }
 
-        public RelayCommand OpenCommand { get; }
+        private void Alert(Exception e) => MessageBox.Show(e.Message);
 
-        private void OpenFile()
+
+        private void LoadImage()
         {
-            var dialog = new OpenFileDialog();
-            var result = dialog.ShowDialog();
-            if (!(result.HasValue && result.Value)) { return; }
-            if (ImageConfig.IsValidImageFile(dialog.FileName))
+            var result = ImageLoader.Load();
+            if (!result.Completed) { return; }
+
+            if (result.IsOk)
             {
-                ImagePath = dialog.FileName;
+                ImagePath = result.Ok;
             }
             else
             {
-                MessageBox.Show($"This appears not to be a valid image file. Please try using a file with one of the following extensions: {string.Join(", ", ImageConfig.ValidExtensions)}", "Error");
+                Alert(result.Err);
             }
         }
 
-        public CardTabViewModel([NotNull] IPokemon pokemon)
+        private void PerformIO<T>(Func<IPokemon, IIOResult<T>> operation) where T : class
+        {
+            var result = operation(ContentViewModel);
+            if (result.IsError) { Alert(result.Err);}
+        }
+
+        public CardTabViewModel([NotNull] IPokemon pokemon, [NotNull] IImageLoader imageLoader, [NotNull] IIOService jsonService)
         {
             ContentViewModel = pokemon;
+            ImageLoader = imageLoader;
+            JsonService = jsonService;
             HP = new CounterInputViewModel(ContentViewModel.HP);
             Level = new CounterInputViewModel(ContentViewModel.Level);
             Weakness = new ToggleableComboBoxViewModel<Type>(ContentViewModel.Weakness);
@@ -59,7 +79,9 @@ namespace Editor.ViewModel
             Type = new ComboBoxViewModel<Type>(ContentViewModel.Type);
             Rarity = new ComboBoxViewModel<Rarity>(ContentViewModel.Rarity);
 
-            OpenCommand = new RelayCommand(OpenFile);
+            OpenCommand = new RelayCommand(LoadImage);
+            ExportJsonCommand = new RelayCommand(() => PerformIO(JsonService.Save));
+            ImportJsonCommand = new RelayCommand(() => PerformIO(JsonService.Load));
         }
 
     }

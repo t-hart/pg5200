@@ -17,6 +17,7 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
@@ -87,5 +88,7 @@
         <Button Grid.Row="4" Grid.Column="1" Content="Save" Margin="3" Padding="5,1"/>
         <Button Grid.Row="5" Grid.Column="0" Content="Reset" Margin="3" Padding="5,1"/>
         <Button Grid.Row="5" Grid.Column="1" Content="Browse cards" Margin="3" Padding="5,1"/>
+        <Button Grid.Row="6" Grid.Column="0" Content="Export as JSON" Margin="3" Padding="5,1" Command="{Binding ExportJsonCommand}"/>
+        <Button Grid.Row="6" Grid.Column="1" Content="Load from JSON" Margin="3" Padding="5,1" Command="{Binding ImportJsonCommand}"/>
     </Grid>
 </UserControl>
