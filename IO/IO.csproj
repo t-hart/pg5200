@@ -49,12 +49,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config\Image.cs" />
-    <Compile Include="IO\IImageLoader.cs" />
-    <Compile Include="IO\IIOResult.cs" />
-    <Compile Include="IO\ImageLoader.cs" />
-    <Compile Include="IO\IOResult.cs" />
-    <Compile Include="IO\IStorageService.cs" />
-    <Compile Include="IO\Json.cs" />
+    <Compile Include="IImageLoader.cs" />
+    <Compile Include="IIOResult.cs" />
+    <Compile Include="ImageLoader.cs" />
+    <Compile Include="IOResult.cs" />
+    <Compile Include="IStorageService.cs" />
+    <Compile Include="Json.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

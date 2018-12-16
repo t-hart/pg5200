@@ -1,4 +1,4 @@
-namespace IO.IO
+namespace IO
 {
     public interface IImageLoader
     {

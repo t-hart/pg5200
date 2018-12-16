@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using Result;
 using Formatting = Newtonsoft.Json.Formatting;
 
-namespace IO.IO
+namespace IO
 {
     public class Json : IStorageService
     {

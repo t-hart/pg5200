@@ -2,7 +2,7 @@ using System.Linq;
 using IO.Config;
 using Microsoft.Win32;
 
-namespace IO.IO
+namespace IO
 {
     public class ImageLoader : IImageLoader
     {

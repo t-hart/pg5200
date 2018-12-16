@@ -7,7 +7,7 @@ using Editor.Config;
 using Editor.Interfaces;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
-using IO.IO;
+using IO;
 using JetBrains.Annotations;
 using Microsoft.Win32;
 using Type = Editor.CardProperties.Type;

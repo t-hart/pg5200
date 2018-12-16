@@ -1,7 +1,7 @@
 using GalaSoft.MvvmLight;
 using Editor.Model;
 using Editor.Interfaces;
-using IO.IO;
+using IO;
 
 namespace Editor.ViewModel
 {

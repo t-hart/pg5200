@@ -1,6 +1,6 @@
 using Result;
 
-namespace IO.IO
+namespace IO
 {
     public interface IIOResult<T> : IResult<T> where T : class
     {

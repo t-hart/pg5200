@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Editor.CardProperties;
 using Editor.Interfaces;
+using Editor.Model;
 using JetBrains.Annotations;
 using StringUtils;
 

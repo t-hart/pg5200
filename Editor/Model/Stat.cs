@@ -2,7 +2,7 @@ using System;
 using Editor.Interfaces;
 using JetBrains.Annotations;
 
-namespace Editor.ViewModel
+namespace Editor.Model
 {
     public sealed class Stat : IStat
     {

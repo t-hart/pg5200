@@ -1,7 +1,7 @@
 using System;
 using Result;
 
-namespace IO.IO
+namespace IO
 {
     class IOResult<T> : IIOResult<T> where T : class
     {

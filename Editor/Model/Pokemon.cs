@@ -2,12 +2,13 @@ using System;
 using System.Collections.Generic;
 using Editor.CardProperties;
 using Editor.Interfaces;
+using Editor.ViewModel;
 using Editor.ViewModel.Interfaces;
 using JetBrains.Annotations;
 using StringUtils;
 using Type = Editor.CardProperties.Type;
 
-namespace Editor.ViewModel
+namespace Editor.Model
 {
     class Pokemon : IPokemon
     {
