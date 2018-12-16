@@ -1,14 +1,8 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Editor.Config;
+using IO.Config;
 using Microsoft.Win32;
-using Result;
 
-namespace Editor.IO
+namespace IO.IO
 {
     public class ImageLoader : IImageLoader
     {
@@ -20,7 +14,7 @@ namespace Editor.IO
             var dialogResult = dialog.ShowDialog();
             if (!(dialogResult.HasValue && dialogResult.Value)) { return IOResult<string>.Cancel(); }
 
-            return IOResult<string>.Complete(Result<string>.Success(dialog.FileName));
+            return IOResult<string>.Complete(Result.Result<string>.Success(dialog.FileName));
         }
     }
 }

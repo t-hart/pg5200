@@ -1,18 +1,13 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using Microsoft.Win32;
 using Newtonsoft.Json;
 using Result;
-using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
-using SaveFileDialog = Microsoft.Win32.SaveFileDialog;
+using Formatting = Newtonsoft.Json.Formatting;
 
-namespace Editor.IO
+namespace IO.IO
 {
-    public class Json : IIOService
+    public class Json : IStorageService
     {
         private static IResult<T> Operate<T>(Func<T> f) where T : class
         {
@@ -31,12 +26,12 @@ namespace Editor.IO
                 {
                     using (var writer = new StreamWriter(path))
                     {
-                        writer.Write(JsonConvert.SerializeObject(o, Formatting.Indented,
-                         new JsonSerializerSettings
-                         {
-                             DateFormatString = "yyyy-MM-ddTHH:mm:sszzz",
-                             NullValueHandling = NullValueHandling.Ignore,
-                         }));
+                        writer.Write((string) JsonConvert.SerializeObject(o, Formatting.Indented,
+                            new JsonSerializerSettings
+                            {
+                                DateFormatString = "yyyy-MM-ddTHH:mm:sszzz",
+                                NullValueHandling = NullValueHandling.Ignore,
+                            }));
                     }
 
                     return path;

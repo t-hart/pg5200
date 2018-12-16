@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Result;
 
-namespace Editor.IO
+namespace IO.IO
 {
     public interface IIOResult<T> : IResult<T> where T : class
     {

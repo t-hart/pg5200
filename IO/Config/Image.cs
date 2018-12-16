@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using JetBrains.Annotations;
 
-namespace Editor.Config
+namespace IO.Config
 {
     public static class Image
     {

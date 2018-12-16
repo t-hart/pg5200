@@ -5,9 +5,9 @@ using System.Windows;
 using Editor.CardProperties;
 using Editor.Config;
 using Editor.Interfaces;
-using Editor.IO;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using IO.IO;
 using JetBrains.Annotations;
 using Microsoft.Win32;
 using Type = Editor.CardProperties.Type;
@@ -19,7 +19,7 @@ namespace Editor.ViewModel
         public IPokemon ContentViewModel { get; set; }
 
         [NotNull] private readonly IImageLoader ImageLoader;
-        [NotNull] private readonly IIOService JsonService;
+        [NotNull] private readonly IStorageService JsonService;
 
         [NotNull] public CounterInputViewModel HP { get; }
         [NotNull] public CounterInputViewModel Level { get; }
@@ -67,7 +67,7 @@ namespace Editor.ViewModel
             if (result.IsError) { Alert(result.Err);}
         }
 
-        public CardTabViewModel([NotNull] IPokemon pokemon, [NotNull] IImageLoader imageLoader, [NotNull] IIOService jsonService)
+        public CardTabViewModel([NotNull] IPokemon pokemon, [NotNull] IImageLoader imageLoader, [NotNull] IStorageService jsonService)
         {
             ContentViewModel = pokemon;
             ImageLoader = imageLoader;

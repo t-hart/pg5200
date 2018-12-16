@@ -86,13 +86,6 @@
     <Compile Include="ComboBoxLabeled.xaml.cs">
       <DependentUpon>ComboBoxLabeled.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Config\Image.cs" />
-    <Compile Include="IO\IIOResult.cs" />
-    <Compile Include="IO\IIOService.cs" />
-    <Compile Include="IO\IImageLoader.cs" />
-    <Compile Include="IO\ImageLoader.cs" />
-    <Compile Include="IO\IOResult.cs" />
-    <Compile Include="IO\Json.cs" />
     <Compile Include="ViewModel\Move.cs" />
     <Compile Include="ViewModel\MoveTabViewModel.cs" />
     <Compile Include="ViewModel\ComboBoxViewModel.cs" />
@@ -217,6 +210,10 @@
     <Resource Include="Assets\squirtle.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\IO\IO.csproj">
+      <Project>{acd79c2a-48f9-487c-a811-b7aa779816c3}</Project>
+      <Name>IO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Result\Result.csproj">
       <Project>{25A4421E-7B43-46A7-9594-903D159061D2}</Project>
       <Name>Result</Name>
