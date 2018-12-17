@@ -1,7 +1,6 @@
 using System;
 using Editor.Interfaces;
 using JetBrains.Annotations;
-using Newtonsoft.Json;
 
 namespace Editor.Model
 {
