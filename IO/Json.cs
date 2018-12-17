@@ -31,7 +31,6 @@ namespace IO
                             {
                                 DateFormatString = "yyyy-MM-ddTHH:mm:sszzz",
                                 NullValueHandling = NullValueHandling.Ignore,
-                                PreserveReferencesHandling = PreserveReferencesHandling.Objects,
                             }));
                     }
 
