@@ -4,11 +4,8 @@ using Newtonsoft.Json.Converters;
 
 namespace Editor.ViewModel.Interfaces
 {
-    public interface IToggleableEnum<T> where T : Enum
+    public interface IToggleableEnum<T> : IReferenceEnum<T> where T : Enum
     {
         bool IsActive { get; set; }
-
-        [JsonConverter(typeof(StringEnumConverter))]
-        T Current { get; set; }
     }
 }

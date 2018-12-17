@@ -10,12 +10,12 @@ namespace Editor.ViewModel
     public class ToggleableEnum<T> : IToggleableEnum<T> where T: Enum
     {
         public bool IsActive { get; set; }
-        public T Current { get; set; }
+        public T Value { get; set; }
 
         public ToggleableEnum(T current, bool isActive)
         {
             IsActive = isActive;
-            Current = current;
+            Value = current;
         }
     }
 }

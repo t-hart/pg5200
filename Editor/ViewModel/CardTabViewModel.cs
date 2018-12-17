@@ -27,6 +27,7 @@ namespace Editor.ViewModel
         [NotNull] public ToggleableComboBoxViewModel<Type> Resistance { get; }
         [NotNull] public ComboBoxViewModel<Type> Type { get; }
         [NotNull] public ComboBoxViewModel<Rarity> Rarity { get; }
+
         public RelayCommand OpenCommand { get; }
         public RelayCommand ExportJsonCommand { get; }
         public RelayCommand ImportJsonCommand { get; }

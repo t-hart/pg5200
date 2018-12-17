@@ -7,6 +7,7 @@ using Editor.ViewModel.Interfaces;
 using JetBrains.Annotations;
 using StringUtils;
 using Type = Editor.CardProperties.Type;
+using Rarity = Editor.CardProperties.Rarity;
 
 namespace Editor.Model
 {
@@ -19,7 +20,7 @@ namespace Editor.Model
 
         public IStat HP { get; set; }
         public string ImagePath { get; set; }
-        public Type Type { get; set; }
+        public IReferenceEnum<Type> Type { get; set; }
 
         private string _modifier = "";
         public string Modifier
@@ -47,7 +48,7 @@ namespace Editor.Model
             set { if (value != _dexEntry) { _dexEntry = value.Truncate(Config.General.MaxDexEntryLength); } }
         }
 
-        public Rarity Rarity { get; set; }
+        public IReferenceEnum<Rarity> Rarity { get; set; }
 
         public Pokemon(
             [NotNull] string modifier = "",
@@ -55,12 +56,12 @@ namespace Editor.Model
              uint hp = 10,
              uint level = 5,
             [NotNull] string imageUrl = "",
-            Type type = Type.Colorless,
+            Type type = Editor.CardProperties.Type.Colorless,
             Type? weakness = null,
             Type? resistance = null,
             Dictionary<Type, uint> retreatCost = null,
             [NotNull] string dexEntry = "",
-            Rarity rarity = Rarity.Common
+            Rarity rarity = Editor.CardProperties.Rarity.Common
         )
         {
             Modifier = modifier;
@@ -68,11 +69,11 @@ namespace Editor.Model
             ImagePath = imageUrl;
             HP = Stat.HP(hp);
             Level = Stat.Level(level);
-            Type = type;
+            Type = new ReferenceEnum<Type>(type);
             Weakness = new ToggleableEnum<Type>(weakness ?? 0, weakness != null);
             Resistance = new ToggleableEnum<Type>(resistance ?? 0, resistance != null);
             DexEntry = dexEntry;
-            Rarity = rarity;
+            Rarity = new ReferenceEnum<Rarity>(rarity);
         }
     }
 }

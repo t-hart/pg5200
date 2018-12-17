@@ -86,6 +86,8 @@
     <Compile Include="ComboBoxLabeled.xaml.cs">
       <DependentUpon>ComboBoxLabeled.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\ReferenceEnum.cs" />
+    <Compile Include="ViewModel\IReferenceEnum.cs" />
     <Compile Include="ViewModel\Move.cs" />
     <Compile Include="ViewModel\MoveTabViewModel.cs" />
     <Compile Include="ViewModel\ComboBoxViewModel.cs" />

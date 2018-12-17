@@ -14,11 +14,11 @@ namespace Editor.ViewModel
 
         public int CurrentIndex
         {
-            get => Convert.ToInt32(Toggleable.Current);
+            get => Convert.ToInt32(Toggleable.Value);
             set
             {
                 if (CurrentIndex == value) { return; }
-                Toggleable.Current = Options[value];
+                Toggleable.Value = Options[value];
                 RaisePropertyChanged("");
             }
         }
