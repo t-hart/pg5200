@@ -95,7 +95,6 @@
     <Compile Include="TextBoxLabeled.xaml.cs">
       <DependentUpon>TextBoxLabeled.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\TextBoxLabeledViewModel.cs" />
     <Compile Include="ViewModel\ComboBoxLabeledViewModel.cs" />
     <Compile Include="ViewModel\Interfaces\IComboBoxViewModel.cs" />
     <Compile Include="ViewModel\Interfaces\IToggleableComboBoxViewModel.cs" />

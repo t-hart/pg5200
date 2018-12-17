@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Editor.CardProperties;
 using Editor.Interfaces;
 using Editor.ViewModel;
@@ -15,7 +16,20 @@ namespace Editor.Model
     {
         public IResettable Reset()
         {
-            throw new NotImplementedException();
+            ImagePath = string.Empty;
+            Modifier = string.Empty;
+            Name = string.Empty;
+            DexEntry = string.Empty;
+            Weakness.Value = CardProperties.Type.Colorless;
+            Weakness.IsActive = false;
+            Resistance.Value = CardProperties.Type.Colorless;
+            Resistance.IsActive = false;
+            HP.Reset();
+            Level.Reset();
+            Type.Value = CardProperties.Type.Colorless;
+            Rarity.Value = CardProperties.Rarity.Common;
+
+            return this;
         }
 
         public IStat HP { get; set; }

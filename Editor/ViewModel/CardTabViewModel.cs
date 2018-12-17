@@ -25,6 +25,7 @@ namespace Editor.ViewModel
         [NotNull] public ComboBoxViewModel<Rarity> Rarity { get; }
 
         public RelayCommand OpenCommand { get; }
+        public RelayCommand ResetCommand { get; }
         public RelayCommand ExportJsonCommand { get; }
         public RelayCommand ImportJsonCommand { get; }
 
@@ -64,8 +65,9 @@ namespace Editor.ViewModel
             if (result.IsError) { Alert(result.Err); }
         }
 
-        private void UpdateChildren()
+        private void ForceUpdate()
         {
+            RaisePropertyChanged("");
             HP.RaisePropertyChanged("");
             Level.RaisePropertyChanged("");
             Weakness.RaisePropertyChanged("");
@@ -91,8 +93,12 @@ namespace Editor.ViewModel
             ImportJsonCommand = new RelayCommand(() =>
             {
                 PerformIO(JsonService.Load);
-                RaisePropertyChanged("");
-                UpdateChildren();
+                ForceUpdate();
+            });
+            ResetCommand = new RelayCommand(() =>
+            {
+                ContentViewModel.Reset();
+                ForceUpdate();
             });
         }
 
