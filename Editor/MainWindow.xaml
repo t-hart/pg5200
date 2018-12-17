@@ -17,7 +17,7 @@
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Window.Resources>
-  <Grid x:Name="LayoutRoot">
+  <Grid x:Name="LayoutRoot" Width="420">
     <TabControl>
       <TabItem Header="Pokémon">
         <editor:CardTab DataContext="{Binding Card}"/>

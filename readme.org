@@ -29,7 +29,3 @@
 
      Notes:
       All numeric values (save for level) should be rounded to the nearest 10.
-
-
-** Author
- Thomas Hartmann

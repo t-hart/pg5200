@@ -14,7 +14,7 @@
         </Grid.ColumnDefinitions>
         <CheckBox HorizontalAlignment="Center" Margin="0,1,0,0" VerticalAlignment="Center" Grid.Column="0"
                   IsChecked="{Binding IsActive, Mode=TwoWay}"/>
-        <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,1,0,2" Width="80" Grid.Column="1"
+        <ComboBox VerticalAlignment="Center" Margin="5,1,0,2" Grid.Column="1"
                   IsEnabled="{Binding IsActive}" ItemsSource="{Binding Options}" SelectedIndex="{Binding CurrentIndex}"/>
     </Grid>
 </UserControl>
