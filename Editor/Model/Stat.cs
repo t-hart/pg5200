@@ -31,7 +31,7 @@ namespace Editor.Model
             _currentValue = _clamp(value);
         }
 
-        public static Stat Level(uint value = 5) =>
+        public static Stat Level(uint value) =>
             new Stat(
                 new Values { Min = 1, Max = 100, Default = 5 },
                 new Functions
