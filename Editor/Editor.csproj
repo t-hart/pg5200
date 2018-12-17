@@ -99,6 +99,7 @@
     <Compile Include="ViewModel\Interfaces\IComboBoxViewModel.cs" />
     <Compile Include="ViewModel\Interfaces\IToggleableComboBoxViewModel.cs" />
     <Compile Include="ViewModel\Interfaces\IToggleableEnum.cs" />
+    <Compile Include="ViewModel\TabViewModel.cs" />
     <Compile Include="ViewModel\ToggleableComboBoxViewModel.cs" />
     <Compile Include="ToggleableComboBox.xaml.cs">
       <DependentUpon>ToggleableComboBox.xaml</DependentUpon>

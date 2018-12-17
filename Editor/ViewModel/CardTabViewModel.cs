@@ -1,8 +1,5 @@
-using System;
-using System.Windows;
 using Editor.CardProperties;
 using Editor.Interfaces;
-using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using IO;
 using JetBrains.Annotations;
@@ -10,12 +7,9 @@ using Type = Editor.CardProperties.Type;
 
 namespace Editor.ViewModel
 {
-    public class CardTabViewModel : ViewModelBase, ITab<IPokemon>
+    public class CardTabViewModel : TabViewModel<IPokemon>
     {
-        public IPokemon ContentViewModel { get; set; }
-
-        [NotNull] private readonly IImageLoader ImageLoader;
-        [NotNull] private readonly IStorageService JsonService;
+        [NotNull] private readonly IImageLoader _imageLoader;
 
         [NotNull] public CounterInputViewModel HP { get; }
         [NotNull] public CounterInputViewModel Level { get; }
@@ -24,10 +18,7 @@ namespace Editor.ViewModel
         [NotNull] public ComboBoxViewModel<Type> Type { get; }
         [NotNull] public ComboBoxViewModel<Rarity> Rarity { get; }
 
-        public RelayCommand OpenCommand { get; }
-        public RelayCommand ResetCommand { get; }
-        public RelayCommand ExportJsonCommand { get; }
-        public RelayCommand ImportJsonCommand { get; }
+        public RelayCommand LoadImageCommand { get; }
 
         [NotNull]
         public string ImagePath
@@ -41,12 +32,9 @@ namespace Editor.ViewModel
             }
         }
 
-        private static void Alert(Exception e) => MessageBox.Show(e.Message);
-
-
         private void LoadImage()
         {
-            var result = ImageLoader.Load();
+            var result = _imageLoader.Load();
             if (!result.Completed) { return; }
 
             if (result.IsOk)
@@ -59,13 +47,7 @@ namespace Editor.ViewModel
             }
         }
 
-        private void PerformIO<T>(Func<IPokemon, IIOResult<T>> operation) where T : class
-        {
-            var result = operation(ContentViewModel);
-            if (result.IsError) { Alert(result.Err); }
-        }
-
-        private void ForceUpdate()
+        protected override void ForceUpdate()
         {
             RaisePropertyChanged("");
             HP.RaisePropertyChanged("");
@@ -77,10 +59,10 @@ namespace Editor.ViewModel
         }
 
         public CardTabViewModel([NotNull] IPokemon pokemon, [NotNull] IImageLoader imageLoader, [NotNull] IStorageService jsonService)
+            : base(jsonService)
         {
             ContentViewModel = pokemon;
-            ImageLoader = imageLoader;
-            JsonService = jsonService;
+            _imageLoader = imageLoader;
             HP = new CounterInputViewModel(ContentViewModel.HP);
             Level = new CounterInputViewModel(ContentViewModel.Level);
             Weakness = new ToggleableComboBoxViewModel<Type>(ContentViewModel.Weakness);
@@ -88,18 +70,7 @@ namespace Editor.ViewModel
             Type = new ComboBoxViewModel<Type>(ContentViewModel.Type);
             Rarity = new ComboBoxViewModel<Rarity>(ContentViewModel.Rarity);
 
-            OpenCommand = new RelayCommand(LoadImage);
-            ExportJsonCommand = new RelayCommand(() => PerformIO(JsonService.Save));
-            ImportJsonCommand = new RelayCommand(() =>
-            {
-                PerformIO(JsonService.Load);
-                ForceUpdate();
-            });
-            ResetCommand = new RelayCommand(() =>
-            {
-                ContentViewModel.Reset();
-                ForceUpdate();
-            });
+            LoadImageCommand = new RelayCommand(LoadImage);
         }
 
     }

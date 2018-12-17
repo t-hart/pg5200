@@ -12,7 +12,11 @@ namespace Editor.ViewModel
     {
         public IResettable Reset()
         {
-            throw new System.NotImplementedException();
+            Name = string.Empty;
+            Description = string.Empty;
+            Damage.Reset();
+    
+            return this;
         }
 
         [NotNull] private string _name = "";
