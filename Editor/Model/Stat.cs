@@ -8,7 +8,7 @@ namespace Editor.Model
     {
         private readonly Values _values;
 
-        public string Name { get; }
+        [NotNull] public abstract string Name { get; }
 
         private uint _currentValue;
         public uint Value
@@ -21,10 +21,9 @@ namespace Editor.Model
         public abstract void Decrement();
         protected abstract uint Clamp(uint value);
 
-        private Stat(Values values, [NotNull] string name)
+        private Stat(Values values)
         {
             _values = values;
-            Name = name;
         }
 
         public abstract class PointStat : Stat
@@ -36,7 +35,7 @@ namespace Editor.Model
                 : x > _values.Max ? _values.Max
                 : (uint) (Math.Round(x / 10d) * 10);
 
-            protected PointStat(Values values, [NotNull] string name, uint value) : base(values, name)
+            protected PointStat(Values values, uint value) : base(values)
             {
                 Value = Clamp(value);
             }
@@ -44,16 +43,19 @@ namespace Editor.Model
 
         public sealed class HP : PointStat
         {
-            public HP(uint value) : base(new Values {Min = 10, Max = 200, Default = 30}, "HP", value) { }
+            public override string Name { get; } = "HP";
+            public HP(uint value) : base(new Values {Min = 10, Max = 200, Default = 30}, value) { }
         }
 
         public sealed class Damage : PointStat
         {
-            public Damage(uint value) : base(new Values {Min = 0, Max = 150, Default = 10}, "Damage", value) { }
+            public override string Name { get; } = "Damage";
+            public Damage(uint value) : base(new Values {Min = 0, Max = 150, Default = 10}, value) { }
         }
 
         public sealed class Level : Stat
         {
+            public override string Name { get; } = "Level";
             public override void Decrement() => Value -= 1;
             public override void Increment() => Value += 1;
 
@@ -62,7 +64,7 @@ namespace Editor.Model
                 : x > _values.Max ? _values.Max
                 : x;
 
-            public Level(uint value) : base(new Values {Min = 1, Max = 100, Default = 5}, "Level")
+            public Level(uint value) : base(new Values {Min = 1, Max = 100, Default = 5})
             {
                 Value = Clamp(value);
             }
