@@ -26,7 +26,7 @@ namespace IO
                 {
                     using (var writer = new StreamWriter(path))
                     {
-                        writer.Write((string) JsonConvert.SerializeObject(o, Formatting.Indented,
+                        writer.Write(JsonConvert.SerializeObject(o, Formatting.Indented,
                             new JsonSerializerSettings
                             {
                                 DateFormatString = "yyyy-MM-ddTHH:mm:sszzz",
