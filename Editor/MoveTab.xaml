@@ -12,6 +12,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -50,8 +51,10 @@
 
         <Button Grid.Row="1" Content="Save and reset" Margin="3" Padding="5,1"/>
         <Button Grid.Row="1" Content="Save" Margin="3" Grid.Column="1" Padding="5,1"/>
-        <Button Grid.Row="2" Content="Reset" Margin="3" Padding="5,1"/>
+        <Button Grid.Row="2" Content="Reset" Margin="3" Padding="5,1" Command="{Binding ResetCommand}"/>
         <Button Grid.Row="2" Content="Browse moves" Margin="3" Grid.Column="1" Padding="5,1"/>
+        <Button Grid.Row="3" Grid.Column="0" Content="Export as JSON" Margin="3" Padding="5,1" Command="{Binding ExportJsonCommand}"/>
+        <Button Grid.Row="3" Grid.Column="1" Content="Load from JSON" Margin="3" Padding="5,1" Command="{Binding ImportJsonCommand}"/>
     </Grid>
 
 </UserControl>
