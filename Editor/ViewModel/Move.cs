@@ -39,7 +39,7 @@ namespace Editor.ViewModel
         {
             Name = name;
             Description = description;
-            Damage = Stat.Damage(damage);
+            Damage = new Stat.Damage(damage);
         }
     }
 }

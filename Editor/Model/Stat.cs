@@ -5,60 +5,69 @@ using Newtonsoft.Json;
 
 namespace Editor.Model
 {
-    public sealed class Stat : IStat
+    public abstract class Stat : IStat
     {
         private readonly Values _values;
 
         public string Name { get; }
 
-        private readonly Func<uint, uint> _clamp;
-
-        public Func<uint> Decrement { get; }
-
-        public Func<uint> Increment { get; }
-
         private uint _currentValue;
         public uint Value
         {
             get => _currentValue;
-            set => _currentValue = _clamp(value);
+            set => _currentValue = Clamp(value);
         }
 
-        private Stat(Values values, Functions fs, [NotNull] string name, uint value)
+        public abstract void Increment();
+        public abstract void Decrement();
+        protected abstract uint Clamp(uint value);
+
+        private Stat(Values values, [NotNull] string name)
         {
             _values = values;
             Name = name;
-            Increment = () => Value = fs.Increment(Value);
-            Decrement = () => Value = fs.Decrement(Value);
-            _clamp = x => fs.Clamp(_values.Min, _values.Max, x);
-            _currentValue = _clamp(value);
         }
 
-        private static Stat PointStat(Values values, string name, uint value) =>
-            new Stat(values, new Functions
+        public abstract class PointStat : Stat
+        {
+            public sealed override void Decrement() => Value -= 10;
+            public sealed override void Increment() => Value += 10;
+            protected sealed override uint Clamp(uint x) =>
+                x < _values.Min || x >= uint.MaxValue - x ? _values.Min
+                : x > _values.Max ? _values.Max
+                : (uint) (Math.Round(x / 10d) * 10);
+
+            protected PointStat(Values values, [NotNull] string name, uint value) : base(values, name)
             {
-                Increment = x => x + 10,
-                Decrement = x => x - 10,
-                Clamp = (min, max, x) => x > max ? max : x < min ? min : (uint)(Math.Round(x / 10d) * 10)
-            },
-            name, value);
+                Value = Clamp(value);
+            }
+        }
 
-        public static Stat Level(uint value) =>
-            new Stat(
-                new Values { Min = 1, Max = 100, Default = 5 },
-                new Functions
-                {
-                    Increment = x => x + 1,
-                    Decrement = x => x - 1,
-                    Clamp = (min, max, x) => x > max ? max : x < min ? min : x
-                },
-                "Level", value);
+        public sealed class HP : PointStat
+        {
+            public HP(uint value) : base(new Values {Min = 10, Max = 200, Default = 30}, "HP", value) { }
+        }
 
-        public static Stat HP(uint value) =>
-            PointStat(new Values{ Min = 10, Max = 200, Default = 30}, "HP", value);
+        public sealed class Damage : PointStat
+        {
+            public Damage(uint value) : base(new Values {Min = 0, Max = 150, Default = 10}, "Damage", value) { }
+        }
 
-        public static Stat Damage(uint value) =>
-            PointStat(new Values {Min = 0, Max = 150, Default = 10}, "Damage", value);
+        public sealed class Level : Stat
+        {
+            public override void Decrement() => Value -= 1;
+            public override void Increment() => Value += 1;
+
+            protected override uint Clamp(uint x) =>
+                x < _values.Min || x >= uint.MaxValue - x ? _values.Min
+                : x > _values.Max ? _values.Max
+                : x;
+
+            public Level(uint value) : base(new Values {Min = 1, Max = 100, Default = 5}, "Level")
+            {
+                Value = Clamp(value);
+            }
+        }
 
 
         public IResettable Reset()
@@ -67,18 +76,11 @@ namespace Editor.Model
             return this;
         }
 
-        private struct Values
+        protected struct Values
         {
             public uint Min { get; set; }
             public uint Max { get; set; }
             public uint Default { get; set; }
-        }
-
-        private struct Functions
-        {
-            public Func<uint, uint> Increment;
-            public Func<uint, uint> Decrement;
-            public Func<uint, uint, uint, uint> Clamp;
         }
     }
 }

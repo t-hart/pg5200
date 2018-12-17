@@ -67,8 +67,8 @@ namespace Editor.Model
             Modifier = modifier;
             Name = name;
             ImagePath = imageUrl;
-            HP = Stat.HP(hp);
-            Level = Stat.Level(level);
+            HP = new Stat.HP(hp);
+            Level = new Stat.Level(level);
             Type = new ReferenceEnum<Type>(type);
             Weakness = new ToggleableEnum<Type>(weakness ?? 0, weakness != null);
             Resistance = new ToggleableEnum<Type>(resistance ?? 0, resistance != null);

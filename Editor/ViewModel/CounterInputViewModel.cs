@@ -17,7 +17,7 @@ namespace Editor.ViewModel
         {
             Counter = counter;
 
-            void Update(Func<uint> updateField)
+            void Update(Action updateField)
             {
                 updateField();
                 RaisePropertyChanged("");
