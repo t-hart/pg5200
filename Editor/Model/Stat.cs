@@ -10,7 +10,7 @@ namespace Editor.Model
 
         public string Name { get; }
 
-        private readonly Func<uint, uint> Clamp;
+        private readonly Func<uint, uint> _clamp;
         public Func<uint> Decrement { get; }
         public Func<uint> Increment { get; }
 
@@ -18,17 +18,17 @@ namespace Editor.Model
         public uint Value
         {
             get => _currentValue;
-            set => _currentValue = Clamp(value);
+            set => _currentValue = _clamp(value);
         }
 
         private Stat(Values values, Functions fs, [NotNull] string name, uint value)
         {
             _values = values;
             Name = name;
-            Increment = () => fs.Increment(this);
-            Decrement = () => fs.Decrement(this);
-            Clamp = x => fs.Clamp(_values.Min, _values.Max, x);
-            _currentValue = Clamp(value);
+            Increment = () => Value = fs.Increment(Value);
+            Decrement = () => Value = fs.Decrement(Value);
+            _clamp = x => fs.Clamp(_values.Min, _values.Max, x);
+            _currentValue = _clamp(value);
         }
 
         public static Stat Level(uint value = 5) =>
@@ -36,8 +36,8 @@ namespace Editor.Model
                 new Values { Min = 1, Max = 100, Default = 5 },
                 new Functions
                 {
-                    Increment = x => x.Value += 1,
-                    Decrement = x => x.Value -= 1,
+                    Increment = x => x + 1,
+                    Decrement = x => x - 1,
                     Clamp = (min, max, x) => x > max ? max : x < min ? min : x
                 },
                 "Level", value);
@@ -45,8 +45,8 @@ namespace Editor.Model
         private static Stat PointStat(Values values, string name, uint value) =>
             new Stat(values, new Functions
             {
-                Increment = x => x.Value += 10,
-                Decrement = x => x.Value -= 10,
+                Increment = x => x + 10,
+                Decrement = x => x - 10,
                 Clamp = (min, max, x) => x > max ? max : x < min ? min : (uint)(Math.Round(x / 10d) * 10)
             },
             name, value);
@@ -73,8 +73,8 @@ namespace Editor.Model
 
         private struct Functions
         {
-            public Func<IStat, uint> Increment;
-            public Func<IStat, uint> Decrement;
+            public Func<uint, uint> Increment;
+            public Func<uint, uint> Decrement;
             public Func<uint, uint, uint, uint> Clamp;
         }
     }
