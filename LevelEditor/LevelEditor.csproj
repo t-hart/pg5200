@@ -88,8 +88,10 @@
     <Compile Include="Tile\TileProvider.cs" />
     <Compile Include="Tile\TileType.cs" />
     <Compile Include="Tile\ITile.cs" />
+    <Compile Include="Config\Map.cs" />
     <Compile Include="ViewModel\ISerializableToTile.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="Messages\SetTileTypeMessage.cs" />
     <Compile Include="ViewModel\Tile.cs" />
     <Compile Include="ViewModel\TileViewModel.cs" />
     <Compile Include="Messages\SelectTileTypeMessage.cs" />

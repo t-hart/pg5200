@@ -12,13 +12,9 @@ namespace LevelEditor.ViewModel
     [UsedImplicitly]
     public class MainViewModel : ViewModelBase
     {
-        public const uint NumTilesX = 20;
-        public const uint NumTilesY = NumTilesX;
-        public const uint TileWidth = 60;
-        public const uint TileHeight = TileWidth;
 
-        public uint MapWidth => NumTilesX * TileWidth;
-        public uint MapHeight => NumTilesY * TileHeight;
+        public uint MapWidth => Config.Map.NumTilesX * Config.Map.TileWidth;
+        public uint MapHeight => Config.Map.NumTilesY * Config.Map.TileHeight;
 
         [NotNull]
         public IEnumerable<ButtonViewModel> Buttons { get; } = new (string text, TileType type)[]{
@@ -38,8 +34,10 @@ namespace LevelEditor.ViewModel
 
         [NotNull]
         private Dictionary<(uint, uint), TileViewModel> Tiles { get; } =
-            Enumerable.Range(0, (int)NumTilesX).SelectMany(x => Enumerable.Range(0, (int)NumTilesY).Select(y => ((uint)x, (uint)y)))
-                .ToDictionary(p => p, ((uint x, uint y) p) => new TileViewModel(p.x * TileWidth, p.y * TileHeight, TileWidth, TileHeight, TileType.Void, TileProvider.Instance));
+            Enumerable.Range(0, (int)Config.Map.NumTilesX).SelectMany(
+                    x => Enumerable.Range(0, (int)Config.Map.NumTilesY).Select(
+                        y => ((uint)x, (uint)y)))
+                .ToDictionary(p => p, ((uint x, uint y) p) => new TileViewModel(p.x * Config.Map.TileWidth, p.y * Config.Map.TileHeight, Config.Map.TileWidth, Config.Map.TileHeight, TileType.Void, TileProvider.Instance));
 
         public MainViewModel()
         {
@@ -73,14 +71,5 @@ namespace LevelEditor.ViewModel
 
         }
 
-    }
-
-    public class SetTileTypeMessage
-    {
-        public TileType TileType { get; }
-        public SetTileTypeMessage(TileType tileType)
-        {
-            TileType = tileType;
-        }
     }
 }
