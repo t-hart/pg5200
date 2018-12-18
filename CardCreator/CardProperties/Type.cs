@@ -1,7 +1,4 @@
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-
-namespace Editor.CardProperties
+namespace CardCreator.CardProperties
 {
     public enum Type
     {

@@ -1,9 +1,9 @@
-<UserControl x:Class="Editor.CardTab"
+<UserControl x:Class="CardCreator.CardTab"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:Editor"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:cardCreator="clr-namespace:CardCreator"
              d:DataContext="{d:DesignData CardTabViewModel}"
              mc:Ignorable="d">
     <Grid Margin="5" VerticalAlignment="Top" >
@@ -60,22 +60,22 @@
             <TextBox Text="{Binding ContentViewModel.Modifier}" Grid.Column="1" VerticalAlignment="Center"/>
 
             <Label FontWeight="Bold" Content="Type" Grid.Row="1"/>
-            <local:ComboBox DataContext="{Binding Type}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top"/>
+            <cardCreator:ComboBox DataContext="{Binding Type}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top"/>
 
             <Label FontWeight="Bold" Content="Level" Grid.Row="2"/>
-            <local:CounterInput Grid.Column="1" Grid.Row="2" DataContext="{Binding Level}" VerticalAlignment="Top"/>
+            <cardCreator:CounterInput Grid.Column="1" Grid.Row="2" DataContext="{Binding Level}" VerticalAlignment="Top"/>
 
             <Label FontWeight="Bold" Content="HP" Grid.Row="3"/>
-            <local:CounterInput Grid.Column="1" Grid.Row="3" DataContext="{Binding HP}" VerticalAlignment="Top"/>
+            <cardCreator:CounterInput Grid.Column="1" Grid.Row="3" DataContext="{Binding HP}" VerticalAlignment="Top"/>
 
             <Label FontWeight="Bold" Content="Weakness" Grid.Row="4"/>
-            <local:ToggleableComboBox Grid.Column="1" Grid.Row="4" DataContext="{Binding Weakness}"/>
+            <cardCreator:ToggleableComboBox Grid.Column="1" Grid.Row="4" DataContext="{Binding Weakness}"/>
 
             <Label FontWeight="Bold" Content="Resistance" Grid.Row="5"/>
-            <local:ToggleableComboBox Grid.Column="1" Grid.Row="5" DataContext="{Binding Resistance}" VerticalAlignment="Top"/>
+            <cardCreator:ToggleableComboBox Grid.Column="1" Grid.Row="5" DataContext="{Binding Resistance}" VerticalAlignment="Top"/>
 
             <Label FontWeight="Bold" Content="Rarity" Grid.Row="6"/>
-            <local:ComboBox DataContext="{Binding Rarity}" Grid.Row="6" Grid.Column="1" VerticalAlignment="Top"/>
+            <cardCreator:ComboBox DataContext="{Binding Rarity}" Grid.Row="6" Grid.Column="1" VerticalAlignment="Top"/>
         </Grid>
         <Label  FontWeight="Bold" Content="Pokédex Entry" Grid.Row="2"/>
 

@@ -1,4 +1,4 @@
-namespace Editor.ViewModel.Interfaces
+namespace CardCreator.ViewModel.Interfaces
 {
     public interface ILabeledInputViewModel<T>
     {

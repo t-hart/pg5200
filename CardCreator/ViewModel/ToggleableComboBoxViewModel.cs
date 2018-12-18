@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Editor.ViewModel.Interfaces;
+using CardCreator.ViewModel.Interfaces;
 using GalaSoft.MvvmLight;
 using JetBrains.Annotations;
 
-namespace Editor.ViewModel
+namespace CardCreator.ViewModel
 {
     public class ToggleableComboBoxViewModel<T> : ViewModelBase, IToggleableComboBoxViewModel<T> where T : Enum
     {

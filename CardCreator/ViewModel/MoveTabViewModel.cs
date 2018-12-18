@@ -1,9 +1,8 @@
-using Editor.Interfaces;
-using GalaSoft.MvvmLight;
+using CardCreator.Interfaces;
 using IO;
 using JetBrains.Annotations;
 
-namespace Editor.ViewModel
+namespace CardCreator.ViewModel
 {
     public class MoveTabViewModel : TabViewModel<IMove>
     {

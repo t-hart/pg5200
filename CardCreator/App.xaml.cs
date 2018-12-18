@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using GalaSoft.MvvmLight.Threading;
 
-namespace Editor
+namespace CardCreator
 {
     /// <summary>
     /// Interaction logic for App.xaml

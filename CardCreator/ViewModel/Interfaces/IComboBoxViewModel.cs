@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Editor.ViewModel.Interfaces
+namespace CardCreator.ViewModel.Interfaces
 {
     public interface IComboBoxViewModel<T> where T : Enum
     {

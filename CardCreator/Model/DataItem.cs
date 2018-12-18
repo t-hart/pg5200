@@ -1,4 +1,4 @@
-﻿namespace Editor.Model
+﻿namespace CardCreator.Model
 {
     public class DataItem
     {

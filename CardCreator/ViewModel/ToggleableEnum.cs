@@ -1,11 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Editor.ViewModel.Interfaces;
+using CardCreator.ViewModel.Interfaces;
 
-namespace Editor.ViewModel
+namespace CardCreator.ViewModel
 {
     public class ToggleableEnum<T> : IToggleableEnum<T> where T: Enum
     {

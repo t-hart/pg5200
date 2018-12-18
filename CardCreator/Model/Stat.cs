@@ -1,8 +1,8 @@
 using System;
-using Editor.Interfaces;
+using CardCreator.Interfaces;
 using JetBrains.Annotations;
 
-namespace Editor.Model
+namespace CardCreator.Model
 {
     public abstract class Stat : IStat
     {

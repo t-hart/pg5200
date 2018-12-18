@@ -1,6 +1,6 @@
 using System;
 
-namespace Editor.ViewModel.Interfaces
+namespace CardCreator.ViewModel.Interfaces
 {
     public interface IToggleableComboBoxViewModel<T> : IComboBoxViewModel<T> where T : Enum
     {

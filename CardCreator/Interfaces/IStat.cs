@@ -1,4 +1,4 @@
-namespace Editor.Interfaces
+namespace CardCreator.Interfaces
 {
     public interface IStat : IResettable, ICounter
     {

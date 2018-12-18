@@ -1,7 +1,7 @@
 using System;
-using Editor.Model;
+using CardCreator.Model;
 
-namespace Editor.Design
+namespace CardCreator.Design
 {
     public class DesignDataService : IDataService
     {

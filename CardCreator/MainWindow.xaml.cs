@@ -1,7 +1,7 @@
 using System.Windows;
-using Editor.ViewModel;
+using CardCreator.ViewModel;
 
-namespace Editor
+namespace CardCreator
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

@@ -1,6 +1,4 @@
-using System;
-
-namespace Editor.Interfaces
+namespace CardCreator.Interfaces
 {
     public interface ICounter
     {

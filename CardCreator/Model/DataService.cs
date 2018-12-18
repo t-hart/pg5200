@@ -1,6 +1,6 @@
 using System;
 
-namespace Editor.Model
+namespace CardCreator.Model
 {
     public class DataService : IDataService
     {

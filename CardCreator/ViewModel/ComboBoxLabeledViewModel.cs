@@ -1,14 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Editor.ViewModel;
-using Editor.ViewModel.Interfaces;
+using CardCreator.ViewModel.Interfaces;
 using GalaSoft.MvvmLight;
 using JetBrains.Annotations;
 
-namespace Editor.ViewModel
+namespace CardCreator.ViewModel
 {
     public class ComboBoxLabeledViewModel<T> : ViewModelBase, IComboBoxViewModel<T> where T : Enum
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace Editor.ViewModel
+namespace CardCreator.ViewModel
 {
     public class ReferenceEnum<T> : IReferenceEnum<T> where T : Enum
     {

@@ -1,8 +1,6 @@
 using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
-namespace Editor.ViewModel.Interfaces
+namespace CardCreator.ViewModel.Interfaces
 {
     public interface IToggleableEnum<T> : IReferenceEnum<T> where T : Enum
     {

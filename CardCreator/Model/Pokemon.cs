@@ -1,16 +1,13 @@
-using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Editor.CardProperties;
-using Editor.Interfaces;
-using Editor.ViewModel;
-using Editor.ViewModel.Interfaces;
+using CardCreator.Interfaces;
+using CardCreator.ViewModel;
+using CardCreator.ViewModel.Interfaces;
 using JetBrains.Annotations;
 using StringUtils;
-using Type = Editor.CardProperties.Type;
-using Rarity = Editor.CardProperties.Rarity;
+using Type = CardCreator.CardProperties.Type;
+using Rarity = CardCreator.CardProperties.Rarity;
 
-namespace Editor.Model
+namespace CardCreator.Model
 {
     class Pokemon : IPokemon
     {
@@ -70,12 +67,12 @@ namespace Editor.Model
              uint hp = 10,
              uint level = 5,
             [NotNull] string imageUrl = "",
-            Type type = Editor.CardProperties.Type.Colorless,
+            Type type = CardProperties.Type.Colorless,
             Type? weakness = null,
             Type? resistance = null,
             Dictionary<Type, uint> retreatCost = null,
             [NotNull] string dexEntry = "",
-            Rarity rarity = Editor.CardProperties.Rarity.Common
+            Rarity rarity = CardProperties.Rarity.Common
         )
         {
             Modifier = modifier;

@@ -1,12 +1,9 @@
-using System.Collections.Generic;
-using System.Linq;
-using Editor.CardProperties;
-using Editor.Interfaces;
-using Editor.Model;
+using CardCreator.Interfaces;
+using CardCreator.Model;
 using JetBrains.Annotations;
 using StringUtils;
 
-namespace Editor.ViewModel
+namespace CardCreator.ViewModel
 {
     public class Move : IMove
     {

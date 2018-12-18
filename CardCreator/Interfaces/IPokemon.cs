@@ -1,12 +1,9 @@
-using System.Collections.Generic;
-using Editor.CardProperties;
-using Editor.ViewModel;
-using Editor.ViewModel.Interfaces;
+using CardCreator.CardProperties;
+using CardCreator.ViewModel;
+using CardCreator.ViewModel.Interfaces;
 using JetBrains.Annotations;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
-namespace Editor.Interfaces
+namespace CardCreator.Interfaces
 {
     public interface IPokemon : IFieldable
     {

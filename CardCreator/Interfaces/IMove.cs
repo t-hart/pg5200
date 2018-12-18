@@ -1,8 +1,6 @@
-using System.Collections.Generic;
-using Editor.CardProperties;
 using JetBrains.Annotations;
 
-namespace Editor.Interfaces
+namespace CardCreator.Interfaces
 {
     public interface IMove : IResettable
     {

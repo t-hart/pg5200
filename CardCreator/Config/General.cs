@@ -1,4 +1,4 @@
-namespace Editor.Config
+namespace CardCreator.Config
 {
     public static class General
     {

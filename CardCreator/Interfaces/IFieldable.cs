@@ -1,6 +1,6 @@
 using JetBrains.Annotations;
 
-namespace Editor.Interfaces
+namespace CardCreator.Interfaces
 {
     public interface IFieldable : IResettable
     {

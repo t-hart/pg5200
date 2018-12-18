@@ -1,9 +1,8 @@
+using CardCreator.Model;
 using GalaSoft.MvvmLight;
-using Editor.Model;
-using Editor.Interfaces;
 using IO;
 
-namespace Editor.ViewModel
+namespace CardCreator.ViewModel
 {
 
     /// <summary>

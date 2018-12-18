@@ -1,11 +1,11 @@
 using System;
 using System.Windows.Input;
-using Editor.Interfaces;
+using CardCreator.Interfaces;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using JetBrains.Annotations;
 
-namespace Editor.ViewModel
+namespace CardCreator.ViewModel
 {
     public class CounterInputViewModel : ViewModelBase
     {

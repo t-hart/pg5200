@@ -1,16 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Editor.Interfaces;
+using CardCreator.Interfaces;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using IO;
 using JetBrains.Annotations;
 
-namespace Editor.ViewModel
+namespace CardCreator.ViewModel
 {
     public abstract class TabViewModel<T> : ViewModelBase, ITab<T> where T : class, IResettable
     {

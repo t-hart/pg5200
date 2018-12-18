@@ -1,11 +1,11 @@
-using Editor.CardProperties;
-using Editor.Interfaces;
+using CardCreator.CardProperties;
+using CardCreator.Interfaces;
 using GalaSoft.MvvmLight.Command;
 using IO;
 using JetBrains.Annotations;
-using Type = Editor.CardProperties.Type;
+using Type = CardCreator.CardProperties.Type;
 
-namespace Editor.ViewModel
+namespace CardCreator.ViewModel
 {
     public class CardTabViewModel : TabViewModel<IPokemon>
     {

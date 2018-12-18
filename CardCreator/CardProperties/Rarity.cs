@@ -1,4 +1,4 @@
-namespace Editor.CardProperties
+namespace CardCreator.CardProperties
 {
     public enum Rarity
     {
