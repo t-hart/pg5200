@@ -47,30 +47,36 @@
 
     In the current version of the application, Pokémon types are modeled as an ~enum~. This is adequate for the current implementation, but doesn't provide any strong guarantees. In earlier iterations I played around with using interfaces to create 'phantom types' (a form of marker traits--see the next subsection for a quick explanation) which would allow for some really interesting interplay to be encoded into the type system, but this isn't idiomatic C# and it became too much of a hassle for the payoff, so I had to let it go in the end. Given more time (and perhaps more freedom in language choice), that would be a very interesting avenue to explore.
 
-**** Phantom types, a brief explanation
-     #+BEGIN_QUOTE
-     A phantom type is a parameterized type whose parameters do not all appear on the right-hand side of its definition [..] -- [[https://wiki.haskell.org/Phantom_type][The Haskell wiki on phantom types]]
-     #+END_QUOTE
-     So what does this mean? In practical terms it allows you to take a type ~T~ parameterized by some other type ~U~ and then restrict what instances of ~T~ can be used in functions.
+*** On phantom types
+    #+BEGIN_QUOTE
+    A phantom type is a parameterized type whose parameters do not all appear on the right-hand side of its definition [...]
+    -- [[https://wiki.haskell.org/Phantom_type][The Haskell wiki on phantom types]]
+    #+END_QUOTE
+    So what does this mean? In practical terms it allows us to take a type ~T~ parameterized by some other type ~U~ and then restrict what instances of ~T~ can be used in functions.
 
-    To give a more concrete example: Imagine a class ~Energy<I>~, representing Pokémon energy cards, where ~I~ is an interface and will be used to decide what Pokémon type it is. In this case, you could declare a function like this:
-    #+BEGIN_SRC csharp
-    public int ThunderTackle(Energy<IElectric> e, Energy<IColorless> c) {...}
-    #+END_SRC
+   To give a more concrete example: Imagine a class ~Energy<I>~, representing Pokémon energy cards, where ~I~ is an interface and will be used to decide what Pokémon type it is. In this case, we could declare a function:
+   #+BEGIN_SRC csharp
+   int ThunderTackle(Energy<IElectric> e, Energy<IColorless> c)
+   #+END_SRC
 
-    This function can then only be called with the correctly typed versions of the Energy class, even if the two objects themselves are the exact same (i.e. not inherited, but of the same class).
+   This function can then only be called with the correctly typed versions of the Energy class, even if the two objects themselves are the exact same (i.e. not inherited, but of the same class).
 
-    In the end, however, trying to force this way of coding onto C# is probably going to create more work than what it might solve, even though it would be a very interesting experiment.
+   In the end, however, trying to force this way of coding onto C# is probably going to create more work than it's worth, but it would be a very interesting experiment.
 
 
 ** Highlights
-   While the project certainly has its shortcomings, there are also certain things I am very pleased with:
+   While the project certainly has its shortcomings, there are also some things I am very pleased with:
 
 *** ~IResult<T>~ and ~IIOResult<T>~
-    # data modeling and error handling
-    The use of the ~IResult<T>~ type and how working with it enables
+    The ~IResult<T>~ (from the ~Result~ project) type is a fairly rudimentary implementation of Rust's ~Result~ type or Haskell's ~Either~ type. It is intended to be used for operations that can fail, but where it's not appropriate to throw an exception.
+
+    While the 'correct' to use exceptions and exception handling can be debated for ages, I am of the school that thinks exceptions should only be used for truly exceptional circumstances, such as if the application suddenly runs out of memory or something else happens that is beyond the developer's control and that cannot be recovered from. This is why the IO operations (the ~IO~ project) return ~IResult<T>~ or derivatives: if something goes wrong when saving or loading data, this is something that should be handled by the developer and should not cause a crash.
+
+    So we have the basic ~IResult<T>~ interface; why do we need ~IIOResult<T>~? If we try and think about all the outcomes of a save/load dialog we get 'success: everything went as expected' and 'error: something went wrong and we could not complete the operation', but what if the user cancels the operation? That shouldn't be an 'error' as nothing went wrong--it's a valid action after all--but we also could not complete the operation. So we introduce a third variable, a ~bool~ ~Completed~. This allows us to get a more complete picture of what happened during an operation and lets us make a more informed decision as to how we want to deal with it.
+
+    Overall, I find this approach to be more elegant and more ergonomic than trying to catch exceptions everywhere.
 
 *** ~enum~ control generation
-
+    With the release of C# 7.3 came the ability to use ~T : System.Enum~ for generics in functions and classes. Using this newfangled ability to have a class be generic over ~enum~ and after getting more familiar with WPF and user controls, I created classes which would take an ~enum~ value and generate all labels for a combo box based on the enum and its type (~ComboBoxViewModel~). Being able to use this for all enum combo box components provided a nice abstraction and sped up the enum process considerably.
 
 #  LocalWords:  CardCreator misconfiguration IResult IIOResult LocalWords
