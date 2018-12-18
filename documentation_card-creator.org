@@ -2,7 +2,7 @@
   This document outlines some of the decisions and trade-offs made during development of the card creator project as well as how to set it up and run it.
 
 * Setup and compilation
-  The project should be easy to set up and compile. It uses the .NET framework 4.7.2 and C# 7.3 so, assuming you have the required SDKs etc installed, it should 'just work'. Make sure you select the 'CardCreator' project when you run/debug as the 'Startup project' setting might be set to another project.
+  The project should be easy to set up and compile. It uses the .NET framework 4.7.2 and C# 7.3 so, assuming you have the required SDKs etc installed, it should 'just work'. Make sure you build the solution first and get the necessary NuGet packages installed. Then make sure you select the 'CardCreator' project when you run/debug; the 'Startup project' setting might be set to another project.
 
 * Software design overview
   The ~CardCreator~ project depends on the ~IO~, ~Result~, and ~StringUtils~ projects. These are all very small projects that serve a very specific purpose and could easily be decoupled from the main project.
