@@ -14,5 +14,7 @@ namespace LevelEditor.ViewModel
             Y = y;
             Type = type;
         }
+
+        public ITile Serialize() => this;
     }
 }
