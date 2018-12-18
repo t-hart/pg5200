@@ -1,0 +1,81 @@
+<Window x:Class="UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ignore="http://www.galasoft.ch/ignore"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:command="http://www.galasoft.ch/mvvmlight"
+        mc:Ignorable="d ignore"
+        Title="Level editor"
+        SizeToContent="WidthAndHeight"
+        DataContext="{Binding Main, Source={StaticResource Locator}}" HorizontalAlignment="Center">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Skins/MainSkin.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid x:Name="ButtonsGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <ItemsControl x:Name="Buttons" ItemsSource="{Binding Buttons}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Content="{Binding Text}" Command="{Binding Command}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
+
+        <ItemsControl x:Name="Map" Grid.Column="1" ItemsSource="{Binding Points}" Height="{Binding MapHeight}" Width="{Binding MapWidth}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Canvas IsItemsHost="true" Background="Transparent"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemContainerStyle>
+                <Style>
+                    <Setter Property="Canvas.Top" Value="{Binding Y}"/>
+                    <Setter Property="Canvas.Left" Value="{Binding X}"/>
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderThickness=".4" Width="{Binding TileWidth}" Height="{Binding TileHeight}" Background="DarkGray">
+                        <Image Source="{Binding Tile}"/>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseDown">
+                                <command:EventToCommand Command="{Binding MouseDownCommand}" />
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <command:EventToCommand Command="{Binding MouseEnterCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <Border.BorderBrush>
+                            <SolidColorBrush Color="Black" Opacity="0.25"/>
+                        </Border.BorderBrush>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+    </Grid>
+</Window>
