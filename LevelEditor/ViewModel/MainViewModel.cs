@@ -1,12 +1,11 @@
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
-using System.Windows.Media.Imaging;
+using System.Windows;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using IO;
 using JetBrains.Annotations;
 using UI.Tile;
-using Brushes = System.Windows.Media.Brushes;
 
 namespace UI.ViewModel
 {
@@ -21,28 +20,41 @@ namespace UI.ViewModel
         public uint MapWidth => NumTilesX * TileWidth;
         public uint MapHeight => NumTilesY * TileHeight;
 
-        public IEnumerable<ButtonViewModel> Buttons { get; }
-
-        public IEnumerable<PointViewModel> Points => Tiles.Values;
-
-        private Dictionary<(uint x, uint y), PointViewModel> Tiles { get; }
-
-
-        public MainViewModel()
-        {
-            Tiles = Enumerable.Range(0, (int)NumTilesX).SelectMany(x => Enumerable.Range(0, (int)NumTilesY).Select(y => ((uint)x, (uint)y))).ToDictionary(
-                        p => p,
-                        p => new PointViewModel(p.Item1 * TileWidth, p.Item2 * TileHeight, TileWidth, TileHeight, null)
-                        );
-
-
-            Buttons = new []{
+        [NotNull]
+        public IEnumerable<ButtonViewModel> Buttons { get; } = new (string text, TileType type)[]{
                 ("Void", TileType.Void),
                 ("Grass", TileType.Grass),
                 ("Flowers", TileType.Flowers),
                 ("Water", TileType.Water),
                 ("Soil", TileType.Soil)
-            }.Select(t => new ButtonViewModel(t.Item1, t.Item2));
+            }.Select(t => new ButtonViewModel(t.text, t.type));
+
+        [NotNull] public IStorageService Storage { get; } = new Json();
+        [NotNull] public RelayCommand SaveCommand { get; }
+        [NotNull] public RelayCommand LoadCommand { get; }
+        [NotNull] public RelayCommand ClearCommand { get; }
+
+        public IEnumerable<TileViewModel> Points => Tiles.Values;
+
+        [NotNull]
+        private Dictionary<(uint, uint), TileViewModel> Tiles { get; } =
+            Enumerable.Range(0, (int)NumTilesX).SelectMany(x => Enumerable.Range(0, (int)NumTilesY).Select(y => ((uint)x, (uint)y)))
+                .ToDictionary(p => p, ((uint x, uint y) p) => new TileViewModel(p.x * TileWidth, p.y * TileHeight, TileWidth, TileHeight, TileType.Void, TileProvider.Instance));
+
+        public MainViewModel()
+        {
+            ClearCommand = new RelayCommand(() => MessengerInstance.Send(new SetTileTypeMessage(TileType.Void)));
+            SaveCommand = new RelayCommand(() => Utils.PerformIO(() => Storage.Save(Tiles.Values.Select(x => x.Serialize()))));
+            LoadCommand = new RelayCommand(() =>
+            {
+                var tiles = new List<Tile>();
+                Utils.PerformIO(() => Storage.Load(tiles));
+
+                foreach (var tile in tiles)
+                {
+                    MessengerInstance.Send(new UpdateTileMessage(tile));
+                }
+            });
         }
 
         public class ButtonViewModel : ViewModelBase
@@ -56,10 +68,19 @@ namespace UI.ViewModel
             {
                 TileType = type;
                 Text = text;
-                Command = new RelayCommand(() => MessengerInstance.Send(new UpdateTileMessage(TileProvider.Instance.Get(TileType))));
+                Command = new RelayCommand(() => MessengerInstance.Send(new SelectTileTypeMessage(TileType)));
             }
 
         }
 
+    }
+
+    public class SetTileTypeMessage
+    {
+        public TileType TileType { get; }
+        public SetTileTypeMessage(TileType tileType)
+        {
+            TileType = tileType;
+        }
     }
 }

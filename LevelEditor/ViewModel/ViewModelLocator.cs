@@ -1,4 +1,4 @@
-﻿/*
+/*
   In App.xaml:
   <Application.Resources>
       <vm:ViewModelLocatorTemplate xmlns:vm="clr-namespace:UI.ViewModel"
