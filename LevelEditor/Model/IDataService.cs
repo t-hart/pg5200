@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UI.Model
+namespace LevelEditor.Model
 {
     public interface IDataService
     {

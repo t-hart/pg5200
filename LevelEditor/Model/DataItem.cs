@@ -1,4 +1,4 @@
-﻿namespace UI.Model
+﻿namespace LevelEditor.Model
 {
     public class DataItem
     {

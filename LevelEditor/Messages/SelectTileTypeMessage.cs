@@ -1,8 +1,7 @@
-using System.Windows.Media.Imaging;
 using GalaSoft.MvvmLight.Messaging;
-using UI.Tile;
+using LevelEditor.Tile;
 
-namespace UI.ViewModel
+namespace LevelEditor.Messages
 {
     public class SelectTileTypeMessage : MessageBase
     {

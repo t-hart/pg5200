@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media.Imaging;
 
-namespace UI.Tile
+namespace LevelEditor.Tile
 {
     public class TileProvider : ITileProvider
     {
@@ -40,9 +40,7 @@ namespace UI.Tile
             return image;
         }
 
-        private TileProvider()
-        {
-        }
+        private TileProvider() { }
 
         private static TileProvider _instance;
         public static TileProvider Instance => _instance ?? (_instance = new TileProvider());

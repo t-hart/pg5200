@@ -2,10 +2,11 @@ using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using LevelEditor.Messages;
+using LevelEditor.Tile;
 using Newtonsoft.Json;
-using UI.Tile;
 
-namespace UI.ViewModel
+namespace LevelEditor.ViewModel
 {
     public class TileViewModel : ViewModelBase, ITile
     {

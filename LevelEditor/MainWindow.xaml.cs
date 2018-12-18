@@ -1,7 +1,7 @@
 ﻿using System.Windows;
-using UI.ViewModel;
+using LevelEditor.ViewModel;
 
-namespace UI
+namespace LevelEditor
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

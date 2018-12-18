@@ -1,10 +1,10 @@
-﻿<Application x:Class="UI.App"
+﻿<Application x:Class="LevelEditor.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:ignore="http://www.galasoft.ch/ignore"
-			 xmlns:viewModel="clr-namespace:UI.ViewModel"
+			 xmlns:viewModel="clr-namespace:LevelEditor.ViewModel"
 			 StartupUri="MainWindow.xaml"
              mc:Ignorable="d ignore">
     

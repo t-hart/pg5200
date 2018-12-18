@@ -1,13 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using IO;
 using JetBrains.Annotations;
-using UI.Tile;
+using LevelEditor.Tile;
 
-namespace UI.ViewModel
+namespace LevelEditor.ViewModel
 {
     [UsedImplicitly]
     public class MainViewModel : ViewModelBase
@@ -62,7 +61,7 @@ namespace UI.ViewModel
 
             public string Text { get; set; }
             public RelayCommand Command { get; set; }
-            public TileType TileType { get; set; }
+            public TileType TileType { get; }
 
             public ButtonViewModel(string text, TileType type)
             {

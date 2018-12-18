@@ -43,7 +43,7 @@ namespace Editor.ViewModel
             }
             else
             {
-                Alert(result.Err);
+                Utils.Alert(result.Err);
             }
         }
 

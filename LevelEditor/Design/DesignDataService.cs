@@ -1,7 +1,7 @@
 ﻿using System;
-using UI.Model;
+using LevelEditor.Model;
 
-namespace UI.Design
+namespace LevelEditor.Design
 {
     public class DesignDataService : IDataService
     {

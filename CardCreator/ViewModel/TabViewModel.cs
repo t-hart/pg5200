@@ -27,10 +27,10 @@ namespace Editor.ViewModel
         protected TabViewModel([NotNull] IStorageService jsonService)
         {
             _jsonService = jsonService;
-            ExportJsonCommand = new RelayCommand(() => Utils.PerformIO(() => _jsonService.Save(ContentViewModel)));
+            ExportJsonCommand = new RelayCommand(() => IO.Utils.PerformIO(() => _jsonService.Save(ContentViewModel)));
             ImportJsonCommand = new RelayCommand(() =>
             {
-                Utils.PerformIO(() => _jsonService.Load(ContentViewModel));
+                IO.Utils.PerformIO(() => _jsonService.Load(ContentViewModel));
                 ForceUpdate();
             });
             ResetCommand = new RelayCommand(() =>

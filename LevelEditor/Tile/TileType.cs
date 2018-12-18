@@ -1,4 +1,4 @@
-namespace UI.Tile
+namespace LevelEditor.Tile
 {
     public enum TileType
     {

@@ -1,12 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using GalaSoft.MvvmLight.Messaging;
-using UI.Tile;
+using LevelEditor.Tile;
 
-namespace UI.ViewModel
+namespace LevelEditor.Messages
 {
     public class UpdateTileMessage : MessageBase
     {

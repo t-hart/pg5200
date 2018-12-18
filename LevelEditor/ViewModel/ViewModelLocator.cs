@@ -11,10 +11,10 @@
 
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
+using LevelEditor.Model;
 using Microsoft.Practices.ServiceLocation;
-using UI.Model;
 
-namespace UI.ViewModel
+namespace LevelEditor.ViewModel
 {
     /// <summary>
     /// This class contains static references to all the view models in the

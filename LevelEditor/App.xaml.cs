@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using GalaSoft.MvvmLight.Threading;
 
-namespace UI
+namespace LevelEditor
 {
     /// <summary>
     /// Interaction logic for App.xaml

@@ -1,6 +1,6 @@
 using System.Windows.Media.Imaging;
 
-namespace UI.Tile
+namespace LevelEditor.Tile
 {
     public interface ITileProvider
     {

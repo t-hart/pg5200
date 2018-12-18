@@ -1,6 +1,6 @@
-using UI.Tile;
+using LevelEditor.Tile;
 
-namespace UI.ViewModel
+namespace LevelEditor.ViewModel
 {
     public class Tile : ITile
     {
