@@ -20,6 +20,9 @@
 ** Favoring composition over inheritance
    Often times, however, inheritance may not be what you want, and you can achieve your goal with composition. In the ~IOResult<T>~ class, that is exactly what happens. The ~IIOResult<T>~ interface implements the ~IResult<T>~ interface, so any implementation must provide the same functionality as an ~IResult<T>~. In addition to this the ~IIOResult<T>~ also has a an ~IResult<T>~ property, which the ~IOResult<T>~ class can use in conjunction with its own properties to create a more accurate modeling of the result of an IO operation.
 
+** Inversion of Control
+   The ~TabViewModel<T>~ and its subclasses use the inversion of control principle to have their IO services and view models injected into them instead of creating them themselves. The same goes for other classes that need a version of an interface.
+
 * Problems encountered
 ** Learning WPF and MVVM Light
    One of the major hurdles for this project was learning to work with WPF. The module's classes only gave us a fairly rudimentary introduction to the framework and skipped over a lot of details that could have come in handy, essentially leaving the students to figure these things out for themselves. Naturally this meant that things moved rather slowly in the beginning, though they definitely sped up towards the end.
@@ -79,5 +82,8 @@
 
 ** ~enum~ control generation
     With the release of C# 7.3 came the ability to use ~T : System.Enum~ for generics in functions and classes. Using this newfangled ability to have a class be generic over ~enum~ and after getting more familiar with WPF and user controls, I created classes which would take an ~enum~ value and generate all labels for a combo box based on the enum and its type (~ComboBoxViewModel~). Being able to use this for all enum combo box components provided a nice abstraction and sped up the enum process considerably.
+
+** Architecture
+   And finally, without repeating everything that was mentioned in the Software Architecture section, I am quite happy with how the architecture turned out and the use of interfaces. This was my first chance to program something in C# after I realized just how useful interfaces could be, and it turns out that the power it gives you really is something.
 
 #  LocalWords:  CardCreator misconfiguration IResult IIOResult LocalWords
