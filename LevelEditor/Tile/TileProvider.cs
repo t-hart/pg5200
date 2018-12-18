@@ -10,15 +10,6 @@ namespace LevelEditor.Tile
     {
         private const int TileWidth = 16;
 
-        private readonly Dictionary<TileType, CroppedBitmap> _tileDict = new Dictionary<TileType, CroppedBitmap>
-        {
-            { TileType.Void, null},
-            { TileType.Grass, GetTile(3,7)},
-            { TileType.Flowers, GetTile(3,5)},
-            { TileType.Water, GetTile(2,1)},
-            { TileType.Soil, GetTile(3,13)},
-        };
-
         private static readonly BitmapSource BitmapSource =
             CreateBitmapSource(new Uri(@"pack://application:,,,/Assets/tileset.png"));
 
@@ -36,7 +27,6 @@ namespace LevelEditor.Tile
                 image.EndInit();
                 image.Freeze();
             }
-
             return image;
         }
 
@@ -45,14 +35,24 @@ namespace LevelEditor.Tile
         private static TileProvider _instance;
         public static TileProvider Instance => _instance ?? (_instance = new TileProvider());
 
+        private const CroppedBitmap Void = null;
+        private static readonly CroppedBitmap Grass = GetTile(3, 7);
+        private static readonly CroppedBitmap Flowers = GetTile(3, 5);
+        private static readonly CroppedBitmap Water = GetTile(2, 1);
+        private static readonly CroppedBitmap Soil = GetTile(3, 13);
+
         public CroppedBitmap Get(TileType type)
         {
-            if (_tileDict.TryGetValue(type, out var tile))
+            switch (type)
             {
-                return tile;
+                case TileType.Void: return Void;
+                case TileType.Water: return Water;
+                case TileType.Grass: return Grass;
+                case TileType.Flowers: return Flowers;
+                case TileType.Soil: return Soil;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(type), type, @"This tile type has not been assigned yet.");
             }
-
-            throw new InvalidEnumArgumentException(@"This tile type has not been assigned yet.");
         }
     }
 }
