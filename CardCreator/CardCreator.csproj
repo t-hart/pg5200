@@ -88,11 +88,9 @@
     <Compile Include="ViewModel\Move.cs" />
     <Compile Include="ViewModel\MoveTabViewModel.cs" />
     <Compile Include="ViewModel\ComboBoxViewModel.cs" />
-    <Compile Include="ViewModel\Interfaces\ILabeledInputViewModel.cs" />
     <Compile Include="TextBoxLabeled.xaml.cs">
       <DependentUpon>TextBoxLabeled.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\ComboBoxLabeledViewModel.cs" />
     <Compile Include="ViewModel\Interfaces\IComboBoxViewModel.cs" />
     <Compile Include="ViewModel\Interfaces\IToggleableComboBoxViewModel.cs" />
     <Compile Include="ViewModel\Interfaces\IToggleableEnum.cs" />
