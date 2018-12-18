@@ -21,24 +21,16 @@ namespace Editor.ViewModel
         [NotNull] public RelayCommand ExportJsonCommand { get; }
         [NotNull] public RelayCommand ImportJsonCommand { get; }
 
-        // ReSharper disable once InconsistentNaming
-        private void PerformIO<U>(Func<T, IIOResult<U>> operation) where U : class
-        {
-            var result = operation(ContentViewModel);
-            if (result.IsError) { Alert(result.Err); }
-        }
-
-        protected static void Alert(Exception e) => MessageBox.Show(e.Message);
 
         protected abstract void ForceUpdate();
 
-        public TabViewModel([NotNull] IStorageService jsonService)
+        protected TabViewModel([NotNull] IStorageService jsonService)
         {
             _jsonService = jsonService;
-            ExportJsonCommand = new RelayCommand(() => PerformIO(_jsonService.Save));
+            ExportJsonCommand = new RelayCommand(() => Utils.PerformIO(() => _jsonService.Save(ContentViewModel)));
             ImportJsonCommand = new RelayCommand(() =>
             {
-                PerformIO(_jsonService.Load);
+                Utils.PerformIO(() => _jsonService.Load(ContentViewModel));
                 ForceUpdate();
             });
             ResetCommand = new RelayCommand(() =>
