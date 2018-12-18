@@ -4,7 +4,6 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using LevelEditor.Messages;
 using LevelEditor.Tile;
-using Newtonsoft.Json;
 
 namespace LevelEditor.ViewModel
 {
@@ -13,13 +12,13 @@ namespace LevelEditor.ViewModel
         public uint X { get; }
         public uint Y { get; }
         public TileType Type { get; set; }
-        [JsonIgnore] public uint TileWidth { get; set; }
-        [JsonIgnore] public uint TileHeight { get; set; }
-        [JsonIgnore] public RelayCommand MouseEnterCommand { get; }
-        [JsonIgnore] public RelayCommand MouseDownCommand { get; }
-        [JsonIgnore] public ITileProvider TileProvider { get; }
-        [JsonIgnore] private TileType _selectedType;
-        [JsonIgnore] public CroppedBitmap Tile { get; set; }
+        public uint TileWidth { get; set; }
+        public uint TileHeight { get; set; }
+        public RelayCommand MouseEnterCommand { get; }
+        public RelayCommand MouseDownCommand { get; }
+        public ITileProvider TileProvider { get; }
+        private TileType _selectedType;
+        public CroppedBitmap Tile { get; set; }
 
         public TileViewModel(uint x, uint y, uint tileWidth, uint tileHeight, TileType type, ITileProvider tileProvider)
         {
@@ -64,6 +63,5 @@ namespace LevelEditor.ViewModel
         }
 
         public ITile Serialize() => new Tile(X / TileWidth, Y / TileHeight, Type);
-
-}
+    }
 }

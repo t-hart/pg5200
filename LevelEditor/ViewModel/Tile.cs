@@ -6,7 +6,7 @@ namespace LevelEditor.ViewModel
     {
         public uint X { get; }
         public uint Y { get; }
-        public TileType Type { get; set; }
+        public TileType Type { get; }
 
         public Tile(uint x, uint y, TileType type)
         {
