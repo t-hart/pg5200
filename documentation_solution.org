@@ -1,0 +1,5 @@
+* PG5200 Final assessment
+** Solution structure
+  This solution contains the projects for the two assesments as projects (~CardCreator~ and ~LevelEditor~ respectively). In addition, it contains several smaller projects that serve as utilities. These smaller projects were extracted because they contain functionality not directly related to the main projects and it also allows for sharing across the projects (as in the case of ~IO~ and ~Result~).
+** Documentation
+   Please see the ~documentation_card-creator~ and ~documentation_level-editor~ for more details about the respective projects.
