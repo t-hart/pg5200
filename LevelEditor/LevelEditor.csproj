@@ -91,8 +91,8 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\Tile.cs" />
     <Compile Include="ViewModel\TileViewModel.cs" />
-    <Compile Include="ViewModel\SelectTileTypeMessage.cs" />
-    <Compile Include="ViewModel\UpdateTileMessage.cs" />
+    <Compile Include="Messages\SelectTileTypeMessage.cs" />
+    <Compile Include="Messages\UpdateTileMessage.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

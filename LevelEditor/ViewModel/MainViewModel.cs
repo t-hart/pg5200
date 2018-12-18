@@ -4,6 +4,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using IO;
 using JetBrains.Annotations;
+using LevelEditor.Messages;
 using LevelEditor.Tile;
 
 namespace LevelEditor.ViewModel
