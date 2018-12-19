@@ -4,7 +4,7 @@
 ** Documentation
    Please see the ~documentation_card-creator~ and ~documentation_level-editor~ for more details about the respective projects.
 ** On the solution hierarchy, or: why is there only one solution?
-   While originally the two projects had their separate solutions, as they started to get more involved it became clear that they had certain functionality in common. There were a few possible solutions to this:
+   While the two projects originally had their separate solutions, as they started to get more involved it became clear that they had certain functionality in common. There were a few possible solutions to this:
   - I could compile separate library projects and use their ~dll~ files as references and bundle them with my project. The downside is I would have to re-build and re-add the dependencies whenever something changed. Not ideal.
   - Alternatively I could publish them as packages to NuGet and use them as dependencies that way, but this would come with the additional overhead of learning how NuGet works /and/ I would still have to republish and then update my dependencies for every change.
   - I could just copy the code between the solutions. Quick and dirty, but if I change the code in one place, I'd have to remember to update the other copy as well. This would get messy quick.
