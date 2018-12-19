@@ -15,13 +15,19 @@
 ** ~abstract class~ vs ~interface~: inheritance or implementation?
    In most cases, I find an interface to be more useful than an abstract class, as it grants greater freedom to the implementing class. However, in some cases, inheritance is useful. As interfaces do not support default implementations (although that seems to be changing with C# 8.0, for better or worse) inheritance is currently the best way to go for code reuse.
 
-   In particular, in this project, it is used for the ~TabViewModel<T>~ (itself implementing the ~ITab<T>~ interface) which is inherited by ~CardTabViewModel~ and ~MoveTabViewModel~, allowing the tab view models to share JSON import and export code.
+   In this project, some examples are the ~Stat~ class and also the ~TabViewModel<T>~ (itself implementing the ~ITab<T>~ interface) which is inherited by ~CardTabViewModel~ and ~MoveTabViewModel~, allowing the tab view models to share JSON import and export code.
 
 ** Favoring composition over inheritance
-   Often times, however, inheritance may not be what you want, and you can achieve your goal with composition. In the ~IOResult<T>~ class, that is exactly what happens. The ~IIOResult<T>~ interface implements the ~IResult<T>~ interface, so any implementation must provide the same functionality as an ~IResult<T>~. In addition to this the ~IIOResult<T>~ also has a an ~IResult<T>~ property, which the ~IOResult<T>~ class can use in conjunction with its own properties to create a more accurate modeling of the result of an IO operation.
+   Often times, however, inheritance may not be what you want, and you can achieve your goal with composition. This is the approach taken in the ~IOResult<T>~ class. The ~IIOResult<T>~ interface implements the ~IResult<T>~ interface, so any implementation must provide the same functionality as an ~IResult<T>~. In addition to this the ~IIOResult<T>~ also has a an ~IResult<T>~ property, which the ~IOResult<T>~ class can use in conjunction with its own properties to create a more accurate modeling of the result of an IO operation.
 
 ** Inversion of Control
    The ~TabViewModel<T>~ and its subclasses use the inversion of control principle to have their IO services and view models injected into them instead of creating them themselves. The same goes for other classes that need a version of an interface.
+
+** The ~IStat~ interface
+   When dealing with cards like this, stats are an important part of the process, but how the stat behaves might be different based on which stat it is. For instance, the level stat works in multiples of one and has a range from 1 to 100 inclusive, whereas the HP stat increments in multiples of 10 and has a range of 10 to 200. I ended up making these different instances of the abstract class ~Stat~, implements the ~IStat~ interface, so that the models can simply use an ~IStat~, but the stats can still share code where necessary.
+
+** On input validation
+   Due to how I structured the types in the view models for the card and move tabs, there was very little validation that had to be done outside of the basic validation that WPF gives you for free. Because all stats are constrained to unsigned integers, negatives and non-numeric input causes errors. As for string fields, they will automatically get truncated if they're too long. Also, using the file type restriction on the Windows save and load dialogs offers means the end user simply can't choose files whose extensions are not explicitly listed.
 
 * Problems encountered
 ** Learning WPF and MVVM Light
@@ -34,9 +40,7 @@
    A big issue which also played a key role in the arguably most significant missing piece in this project was setting up the database project. Coupled with the lack of time mentioned previously, this meant that after spending a good while frantically troubleshooting the database project setup (it wouldn't compile as a fresh project--probably some innocuous misconfiguration somewhere), I had to pull the trigger and decided my time would be better spent working on the level editor project.
 
 * Shortcomings
-  Due to the problems mentioned, the project does have a couple of shortcomings:
-** No database
-   With no database integration up and running, a couple of the functional requirements are not covered: storing, deleting, and browsing cards in the database is not possible. Furthermore, while moves can be saved and loaded from JSON files (just like Pokémon themselves), they can not be loaded in as options in the 'Pokémon' tab.
+  Due to the problems mentioned, the project does have some shortcomings. The biggest one is definitely the lack of a database. With no database integration up and running, a couple of the functional requirements are not covered: storing, deleting, and browsing cards in the database is not possible. Furthermore, while moves can be saved and loaded from JSON files (just like Pokémon themselves), they can not be loaded in as options in the 'Pokémon' tab.
 
 * Elements you wanted to include but did not get time for
   Apart from the obvious database integration, there are a number of elements I would have liked to include.
@@ -67,6 +71,8 @@
 
   In the end, however, trying to force this way of coding onto C# is probably going to create more work than it's worth, but it would be a very interesting experiment.
 
+** Further UI refinement
+   The user interface is still very bare and doesn't offer a lot of help with anything. I'd like to change this to at least make it inform you of limits of stats / string lengths and the like.
 
 * Highlights
   While the project certainly has its shortcomings, there are also some things I am very pleased with:
@@ -74,7 +80,7 @@
 ** ~IResult<T>~ and ~IIOResult<T>~
    The ~IResult<T>~ (from the ~Result~ project) type is a fairly rudimentary implementation of Rust's ~Result~ type or Haskell's ~Either~ type. It is intended to be used for operations that can fail, but where it's not appropriate to throw an exception.
 
-   While the 'correct' to use exceptions and exception handling can be debated for ages, I am of the school that thinks exceptions should only be used for truly exceptional circumstances, such as if the application suddenly runs out of memory or something else happens that is beyond the developer's control and that cannot be recovered from. This is why the IO operations (the ~IO~ project) return ~IResult<T>~ or derivatives: if something goes wrong when saving or loading data, this is something that should be handled by the developer and should not cause a crash.
+   While the 'correct' way to use exceptions and exception handling can be debated for ages, I am of the opinion that exceptions should only be used for truly exceptional circumstances, such as if the application suddenly runs out of memory or something else happens that is beyond the developer's control and that cannot be recovered from. This is why the IO operations (the ~IO~ project) return ~IResult<T>~ or derivatives: if something goes wrong when saving or loading data, this is something that should be handled by the developer and should not cause a crash.
 
    So we have the basic ~IResult<T>~ interface; why do we need ~IIOResult<T>~? If we try and think about all the outcomes of a save/load dialog we get 'success: everything went as expected' and 'error: something went wrong and we could not complete the operation', but what if the user cancels the operation? That shouldn't be an 'error' as nothing went wrong--it's a valid action after all--but we also could not complete the operation. So we introduce a third variable, a ~bool~ ~Completed~. This allows us to get a more complete picture of what happened during an operation and lets us make a more informed decision as to how we want to deal with it.
 
