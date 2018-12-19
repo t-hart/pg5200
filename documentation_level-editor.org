@@ -20,7 +20,6 @@
 
   Apart from that: this project is much simpler, less 'engineered' and more to-the-point, which did provide a nice little break from the Card Creator project.
 
-
 * Unfinished business
   The most notable items I did not get around to implementing / fixing
 
@@ -28,7 +27,7 @@
    One of the requirements for the assessment is 30% unit test coverage. This sounds quite attainable and yet I was not able to get there. I did start writing tests for the ~TileProvider~ class, but due to the resource URI not working correctly when running the tests, the tests would always fail as the class couldn't initialize. Apart from this, though, there really aren't a lot of public methods to test in the project, save for the serialization logic in the ~TileViewModel~ where we want to convert pixels to tile coordinates. Most of the classes are POCOs (Plain Old CLR Object) or DTOs (Dumb Transfer Object) and don't really have any testable surface. Apart from the IO in ~TileProvider~, the next best thing might be to test things like LINQ functions, and there really isn't much good to be had from that. I'm usually very adamant about testing, but in this case, I'm hard pressed to find something that feels like it would be worth testing.
 
 ** Tile interaction
-   Having the tile sprites automatically adjust based on the neighboring tiles and create edges automatically would have been amazing, and was something I was really looking forward to working on, but due to time constraints I did not have time to implement this.
+   Having the tile sprites automatically adjust based on the neighboring tiles and create edges automatically would have been amazing, and was something I was really looking forward to working on, but due to time constraints I did not have time to implement this. Relating back to the unit testing point above, this would be a prime candidate for unit testing as it has a lot of application logic that needs to be validated.
 
 ** Hard-coded values
    Going back to the testing point above, the ~TileProvider~ class uses an image resource to create tiles and needs this to start up. Ideally this would be a parameter for a constructor along with tile width and height, so that the same tile provider can be instantiated with multiple images. In that case, though, it would not be a singleton, but that was a decision that made sense for this little MVP.
